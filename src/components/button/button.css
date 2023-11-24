@@ -1,0 +1,30 @@
+.custom-button {
+  background-color: #ffffff;
+  width: 98%;
+  height: 24px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #000;
+  align-self: center;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.custom-button:hover {
+  background-color: #dcdcdc;
+}
+
+.custom-button__icon {
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0;
+}
+
+.custom-button__icon:hover {
+  color: #555;
+}
