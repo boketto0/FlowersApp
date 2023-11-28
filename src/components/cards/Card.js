@@ -2,6 +2,7 @@ import React from 'react';
 import './Card.css';
 import { PropTypes } from 'prop-types';
 import { Button } from '../button/Button';
+import { ButtonCart } from '../buttonCart/ButtonCart';
 
 export const CardType = {
   FIRST: "first",
@@ -24,16 +25,18 @@ export const Card = (props) => {
             <Button/>
           </div>
         )}
-        {/* {props.cardType === CardType.SECOND && (
-          <div>
-            <div className="card-title">{props.title}</div>
-            <div className="card-text">{props.text}</div>
-            <div className='card-component'>{props.component}</div>
-            <div>{props.picture}</div>
-            <div>{props.documentation}</div>
+        {props.cardType === CardType.SECOND && (
+          <div className='card-second'>
+            <div className='card-second__img'>{props.image}</div>
+            <div className='card-second__content__wrapper'>
+              <div className="card-title">{props.title}</div>
+              <div className="card-text">{props.text}</div>
+              <span className='card-first__price'>{props.price}</span>
+            </div>
+            <ButtonCart/>
           </div>
         )}
-        {props.cardType === CardType.THIRD && (
+        {/* {props.cardType === CardType.THIRD && (
           <div>
             <div className='card-component'>{props.component}</div>
             <div>{props.cell}</div>

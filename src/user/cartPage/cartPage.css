@@ -1,14 +1,7 @@
-.cart-item {
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin: 10px;
-  }
-  
-  .checkout-button {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px;
-    margin: 10px;
-    cursor: pointer;
-  }
-  
+.cartpage__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  flex-direction: column;
+}

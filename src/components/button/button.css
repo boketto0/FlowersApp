@@ -28,3 +28,19 @@
 .custom-button__icon:hover {
   color: #555;
 }
+
+@media (min-width: 600px) {
+  .custom-button {
+      width: 15vw;
+      height: 4vw;
+  }
+
+}
+
+@media (min-width: 1200px) {
+  .custom-button {
+      width: 15vw;
+      height: 4vw;
+  }
+
+}

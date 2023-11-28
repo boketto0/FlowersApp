@@ -1,8 +1,11 @@
 import { useState } from 'react';
+import CartPage from '../../user/cartPage/CartPage';
 import SearchBox from '../../components/search/SearchBox';
 import { ExampleBlock } from '../exampleBlock/ExampleBlock';
 import ProductPage from '../productPage/ProductPage';
 import Header from '../../components/header/Header';
+import './home.css';
+import { ButtonOrderCart } from '../../components/buttonOrderCart/ButtonOrderCart';
 import './home.css';
 
 const Home = () => {
@@ -18,7 +21,8 @@ const Home = () => {
         <SearchBox/>
         <ExampleBlock/>
         <ProductPage addToCart={addToCart} />
-      {/* <CartPage cartItems={cartItems} /> */}
+        <ButtonOrderCart/>
+        {/* <CartPage/> */}
     </div>
   );
 };
