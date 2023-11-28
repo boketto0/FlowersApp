@@ -1,0 +1,28 @@
+.search-box-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.search-box {
+  border-radius: 15px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  width: 90vw;
+  max-width: 1000px;
+}
+
+.search-icon {
+  margin-right: 8px;
+}
+
+input {
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 8px;
+  border-radius: 10px;
+  font-size: 14px;
+}
