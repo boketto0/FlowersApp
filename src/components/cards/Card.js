@@ -2,7 +2,7 @@ import React from 'react';
 import './Card.css';
 import { PropTypes } from 'prop-types';
 import { Button } from '../button/Button';
-import { ButtonCart } from '../buttonCart/ButtonCart';
+import { ButtonSize } from '../button/Button';
 
 export const CardType = {
   FIRST: "first",
@@ -22,7 +22,7 @@ export const Card = (props) => {
             <span className='card-first__price'>{props.price}</span>
             <div className="card-title">{props.title}</div>
             <div className="card-text">{props.text}</div>
-            <Button/>
+            <Button size={ButtonSize.SMALL} colored="white"/>
           </div>
         )}
         {props.cardType === CardType.SECOND && (
@@ -33,7 +33,7 @@ export const Card = (props) => {
               <div className="card-text">{props.text}</div>
               <span className='card-first__price'>{props.price}</span>
             </div>
-            <ButtonCart/>
+            <Button size={ButtonSize.MEDIUM} colored="gray" disableOrderCart/>
           </div>
         )}
         {/* {props.cardType === CardType.THIRD && (
