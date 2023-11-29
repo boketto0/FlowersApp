@@ -1,8 +1,16 @@
-import './button.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import classnames from 'classnames';
 import { ButtonOrderCart } from '../buttonOrderCart/ButtonOrderCart';
+import './button.css'
 
-export const Button = ({ onClick, children }) => {
+export const ButtonSize = {
+  SMALL: 'small',
+  MEDIUM: 'medium',
+};
+
+export const Button = (props) => {
+  const { onClick, children, size, colored, disableOrderCart } = props;
+
   const [count, setCount] = useState(0);
   const [showCounter, setShowCounter] = useState(false);
   const [isButtonOrderCartVisible, setIsButtonOrderCartVisible] = useState(false);
@@ -10,7 +18,9 @@ export const Button = ({ onClick, children }) => {
   const handlePlusClick = () => {
     setCount(count + 1);
     setShowCounter(true);
-    setIsButtonOrderCartVisible(true);
+    if (!disableOrderCart) {
+      setIsButtonOrderCartVisible(true);
+    }
     onClick && onClick();
   };
 
@@ -24,15 +34,19 @@ export const Button = ({ onClick, children }) => {
     onClick && onClick();
   };
 
+  const buttonClass = `button button-${size} ${colored}`;
+
   return (
     <div>
-      <button className="custom-button">
+      <button className={buttonClass}>
         {showCounter && <span onClick={handleMinusClick}>-</span>}
         {showCounter && <span onClick={handlePlusClick}>{count}</span>}
-        <span className='custom-button__icon' onClick={handlePlusClick}>+</span>
+        <span className='button__icon' onClick={handlePlusClick}>+</span>
         {children}
       </button>
-      <ButtonOrderCart isVisible={isButtonOrderCartVisible} handleButtonClick={() => setIsButtonOrderCartVisible(false)} />
+      {!disableOrderCart && (
+        <ButtonOrderCart isVisible={isButtonOrderCartVisible} handleButtonClick={() => setIsButtonOrderCartVisible(false)} />
+      )}
     </div>
   );
 };
