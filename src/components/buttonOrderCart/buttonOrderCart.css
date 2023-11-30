@@ -10,6 +10,7 @@
     justify-content: center;
     opacity: 0; 
     pointer-events: none;
+    box-shadow: 2px 2px 5px #ccc;
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
   

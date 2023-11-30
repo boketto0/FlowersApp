@@ -6,7 +6,7 @@ import Icon3 from '../../assets/productPage/flowers3.jpg'
 import Icon4 from '../../assets/productPage/flowers4.jpg'
 import { Card, CardType } from '../../components/cards/Card';
 import { CardWrapperCart } from '../../components/cards/CardWrapperCart';
-import { ButtonOrderCart } from '../../components/buttonOrderCart/ButtonOrderCart';
+import { ButtonCart } from '../../components/buttonCart/ButtonCart';
 
 const CartPage = ({ cartItems }) => {
 
@@ -36,6 +36,7 @@ const CartPage = ({ cartItems }) => {
       text: "Красивые"
     },
   ]
+  
   return (
     <div className='cartpage__wrapper'>
       <h1>Корзина</h1>
@@ -52,7 +53,7 @@ const CartPage = ({ cartItems }) => {
             </div>
           ))}
         </CardWrapperCart>
-        <ButtonOrderCart/>
+        <ButtonCart/>
     </div>
   );
 };

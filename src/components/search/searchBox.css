@@ -17,6 +17,7 @@
   justify-content: center;
   z-index: 1;
   border-radius: 15px;
+  box-shadow: 2px 2px 5px #ccc;
 }
 
 .search-box {
