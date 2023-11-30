@@ -4,4 +4,10 @@
   justify-content: center;
   text-align: left;
   flex-direction: column;
+  margin-bottom: 124px;
+}
+
+h1 {
+  align-self: baseline;
+  margin-left: 4vw;
 }

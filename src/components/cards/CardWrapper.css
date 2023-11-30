@@ -4,8 +4,9 @@
     gap: 2vw;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-self: center;
+    overflow-x: auto;
     width: 100%;
 }
 

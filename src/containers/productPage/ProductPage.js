@@ -1,7 +1,9 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardType } from '../../components/cards/Card';
 import { CardWrapper } from '../../components/cards/CardWrapper';
 import './productPage.css';
+import { DetailButton, DetailButtonSize } from '../../components/detailButton/DetailButton';
 import Icon1 from '../../assets/productPage/flowers1.jpg'
 import Icon2 from '../../assets/productPage/flowers2.jpg'
 import Icon3 from '../../assets/productPage/flowers3.jpg'
@@ -106,22 +108,107 @@ const ProductPage = ({ addToCart }) => {
       text: "Красивые"
     },
   ]
+
+  const [slideIndex, setSlideIndex] = useState(0);
+  const [visibleCards, setVisibleCards] = useState(3);
+
+  const handleSlide = (direction) => {
+    if (direction === 'left') {
+      setSlideIndex((prevSlideIndex) => prevSlideIndex - 1);
+    } else if (direction === 'right') {
+      setSlideIndex((prevSlideIndex) => prevSlideIndex + 1);
+    }
+  };
+
+  useEffect(() => {
+    const updateVisibleCards = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth >= 768) {
+        setVisibleCards(5);
+      } else {
+        setVisibleCards(2);
+      }
+    };
+
+    window.addEventListener('resize', updateVisibleCards);
+    updateVisibleCards();
+
+    return () => {
+      window.removeEventListener('resize', updateVisibleCards);
+    };
+  }, []);
+
   return (
-    <div class='product-page__wrapper'>
-      <CardWrapper>
-          {elements.map((el) => (
-            <div key={el.id}>
-              <Card
-                cardType={CardType.FIRST}
-                image={el.image}
-                price={el.price}
-                title={el.title}
-                text={el.text}
-              />
-            </div>
-          ))}
+    <div className='product-page__wrapper'>
+      <div className='product-page__text__wrapper'>
+        <h1>Авторские букеты</h1>
+        <DetailButton direction={'right'} size={DetailButtonSize.MEDIUM} handleSlide={handleSlide} />
+      </div>
+      <div className='product-page__carousel__wrapper'>
+      <DetailButton direction={'left'} size={DetailButtonSize.SMALL} handleSlide={() => handleSlide('left')} />
+        <CardWrapper>
+          {elements
+            .slice(slideIndex, slideIndex + visibleCards)
+            .map((el, index) => (
+              <div key={index}>
+                <Card
+                  cardType={CardType.FIRST}
+                  image={el.image}
+                  price={el.price}
+                  title={el.title}
+                  text={el.text}
+                />
+              </div>
+            ))}
         </CardWrapper>
-        {/* <ProductCard addToCart={addToCart} /> */}
+        <DetailButton direction={'right'} size={DetailButtonSize.SMALL} handleSlide={() => handleSlide('right')} />
+      </div>
+      <div className='product-page__text__wrapper'>
+        <h1>Моно букеты</h1>
+        <DetailButton direction={'right'} size={DetailButtonSize.MEDIUM} handleSlide={handleSlide} />
+      </div>
+      <div className='product-page__carousel__wrapper'>
+      <DetailButton direction={'left'} size={DetailButtonSize.SMALL} handleSlide={() => handleSlide('left')} />
+        <CardWrapper>
+          {elements
+            .slice(slideIndex, slideIndex + visibleCards)
+            .map((el, index) => (
+              <div key={index}>
+                <Card
+                  cardType={CardType.FIRST}
+                  image={el.image}
+                  price={el.price}
+                  title={el.title}
+                  text={el.text}
+                />
+              </div>
+            ))}
+        </CardWrapper>
+        <DetailButton direction={'right'} size={DetailButtonSize.SMALL} handleSlide={() => handleSlide('right')} />
+      </div>
+      <div className='product-page__text__wrapper'>
+        <h1>Букеты в корзинах</h1>
+        <DetailButton direction={'right'} size={DetailButtonSize.MEDIUM} handleSlide={handleSlide} />
+      </div>
+      <div className='product-page__carousel__wrapper'>
+      <DetailButton direction={'left'} size={DetailButtonSize.SMALL} handleSlide={() => handleSlide('left')} />
+        <CardWrapper>
+          {elements
+            .slice(slideIndex, slideIndex + visibleCards)
+            .map((el, index) => (
+              <div key={index}>
+                <Card
+                  cardType={CardType.FIRST}
+                  image={el.image}
+                  price={el.price}
+                  title={el.title}
+                  text={el.text}
+                />
+              </div>
+            ))}
+        </CardWrapper>
+        <DetailButton direction={'right'} size={DetailButtonSize.SMALL} handleSlide={() => handleSlide('right')} />
+      </div>
     </div>
   );
 };

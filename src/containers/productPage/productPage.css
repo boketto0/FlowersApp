@@ -3,4 +3,22 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 96px;
+    flex-direction: column;
+    width: 100%;
+}
+
+.product-page__text__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+
+.product-page__carousel__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
 }

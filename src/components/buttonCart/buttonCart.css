@@ -1,28 +1,34 @@
+.button__cart__wrapper {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px 15px 0px 0px;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    box-shadow: 2px 2px 5px #ccc;
+}
+
 .button__cart {
-    background-color: #cbc7c7;
-    width: 106px;
-    height: 32px;
-    border: none;
-    border-radius: 10px;
+    background-color: #ffd500;
+    width: 98%;
+    height: 52px;
+    border-radius: 15px;
     cursor: pointer;
     font-size: 16px;
-    color: #000;
+    border: none;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-}
-
-.button__cart:hover {
-    background-color: #dcdcdc;
-}
-
-.button__cart__icon {
-    cursor: pointer;
-    font-size: 16px;
-    margin: 0;
-}
-
-.button__cart__icon:hover {
-    color: #555;
-}
+    margin-top: 48px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button__cart:hover {
+    background-color: #e0c100; 
+  }
+  
