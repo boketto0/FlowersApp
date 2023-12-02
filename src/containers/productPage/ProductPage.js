@@ -110,7 +110,7 @@ const ProductPage = ({ addToCart }) => {
   ]
 
   const [slideIndex, setSlideIndex] = useState(0);
-  const [visibleCards, setVisibleCards] = useState(3);
+  const [visibleCards, setVisibleCards] = useState(4);
 
   const handleSlide = (direction) => {
     if (direction === 'left') {
@@ -123,10 +123,12 @@ const ProductPage = ({ addToCart }) => {
   useEffect(() => {
     const updateVisibleCards = () => {
       const screenWidth = window.innerWidth;
-      if (screenWidth >= 768) {
-        setVisibleCards(5);
-      } else {
-        setVisibleCards(2);
+      if (screenWidth <= 1400) {
+        setVisibleCards(3);
+      } else if (screenWidth >= 758){
+        setVisibleCards(3);
+      } else if (screenWidth >= 1200){
+        setVisibleCards(3);
       }
     };
 
@@ -141,7 +143,7 @@ const ProductPage = ({ addToCart }) => {
   return (
     <div className='product-page__wrapper'>
       <div className='product-page__text__wrapper'>
-        <h1>Авторские букеты</h1>
+        <h2>Авторские букеты</h2>
         <DetailButton direction={'right'} size={DetailButtonSize.MEDIUM} handleSlide={handleSlide} />
       </div>
       <div className='product-page__carousel__wrapper'>
@@ -164,7 +166,7 @@ const ProductPage = ({ addToCart }) => {
         <DetailButton direction={'right'} size={DetailButtonSize.SMALL} handleSlide={() => handleSlide('right')} />
       </div>
       <div className='product-page__text__wrapper'>
-        <h1>Моно букеты</h1>
+        <h2>Моно букеты</h2>
         <DetailButton direction={'right'} size={DetailButtonSize.MEDIUM} handleSlide={handleSlide} />
       </div>
       <div className='product-page__carousel__wrapper'>
@@ -187,7 +189,7 @@ const ProductPage = ({ addToCart }) => {
         <DetailButton direction={'right'} size={DetailButtonSize.SMALL} handleSlide={() => handleSlide('right')} />
       </div>
       <div className='product-page__text__wrapper'>
-        <h1>Букеты в корзинах</h1>
+        <h2>Букеты в корзинах</h2>
         <DetailButton direction={'right'} size={DetailButtonSize.MEDIUM} handleSlide={handleSlide} />
       </div>
       <div className='product-page__carousel__wrapper'>
