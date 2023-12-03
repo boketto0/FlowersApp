@@ -21,7 +21,7 @@ const ProductPage = ({ addToCart }) => {
       image: <img className='card-first__img' src={Icon1}/>,
       price: "3500р",
       title: "Розы",
-      text: "Красивые"
+      text: "Красные"
     },
     {
       image: <img className='card-first__img' src={Icon2}/>,
@@ -110,7 +110,7 @@ const ProductPage = ({ addToCart }) => {
   ]
 
   const [slideIndex, setSlideIndex] = useState(0);
-  const [visibleCards, setVisibleCards] = useState(4);
+  const [visibleCards, setVisibleCards] = useState(3);
 
   const handleSlide = (direction) => {
     if (direction === 'left') {
@@ -123,12 +123,10 @@ const ProductPage = ({ addToCart }) => {
   useEffect(() => {
     const updateVisibleCards = () => {
       const screenWidth = window.innerWidth;
-      if (screenWidth <= 1400) {
+      if (screenWidth <= 1200) {
         setVisibleCards(3);
-      } else if (screenWidth >= 758){
-        setVisibleCards(3);
-      } else if (screenWidth >= 1200){
-        setVisibleCards(3);
+      } else {
+        setVisibleCards(4);
       }
     };
 

@@ -25,8 +25,8 @@
 }
 
 .detail-button-small {
-    width: 8vw;
-    height: 8vw;
+    width: 24px;
+    height: 24px;
     font-size: 3vw;
     border-radius: 50px;
 }
