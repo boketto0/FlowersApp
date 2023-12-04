@@ -21,7 +21,7 @@ const ProductPage = ({ addToCart }) => {
       image: <img className='card-first__img' src={Icon1}/>,
       price: "3500р",
       title: "Розы",
-      text: "Красные"
+      text: "Красивые"
     },
     {
       image: <img className='card-first__img' src={Icon2}/>,

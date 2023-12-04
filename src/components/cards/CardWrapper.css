@@ -1,8 +1,8 @@
 .card {
     display: flex;
     flex-direction: row;
-    gap: 2vw;
-    justify-content: space-around;
+    gap: 1vw;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     align-self: center;
