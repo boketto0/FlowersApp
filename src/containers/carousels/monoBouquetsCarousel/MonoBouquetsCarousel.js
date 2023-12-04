@@ -44,7 +44,7 @@ export const MonoBouquetsCarousel = ({ handleSlide }) => {
     useEffect(() => {
         const updateVisibleCards = () => {
         const screenWidth = window.innerWidth;
-        setVisibleCards(screenWidth >= 768 ? 5 : 2);
+        setVisibleCards(screenWidth >= 768 ? 5 : 3);
     };
 
     window.addEventListener('resize', updateVisibleCards);
