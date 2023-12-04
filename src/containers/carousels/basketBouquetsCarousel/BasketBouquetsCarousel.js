@@ -8,7 +8,7 @@ import Icon3 from '../../../assets/productPage/flowers3.jpg'
 import Icon4 from '../../../assets/productPage/flowers4.jpg'
 import Icon5 from '../../../assets/productPage/flowers5.jpg'
 
-export const BasketBouquetsCarousel = ({ handleSlide }) => {
+export const BasketBouquetsCarousel = ( ) => {
 
     const basketElements = [
         {
@@ -42,22 +42,34 @@ export const BasketBouquetsCarousel = ({ handleSlide }) => {
             text: "Красивые"
         },
     ]
-    const [slideIndex, setSlideIndex] = useState(0);
-    const [visibleCards, setVisibleCards] = useState(3);
+  const [slideIndex, setSlideIndex] = useState(0);
+  const [visibleCards, setVisibleCards] = useState(3);
 
-    useEffect(() => {
-        const updateVisibleCards = () => {
-        const screenWidth = window.innerWidth;
-        setVisibleCards(screenWidth >= 768 ? 5 : 3);
+  const handleSlide = (direction) => {
+    if (direction === 'left') {
+      setSlideIndex((prevSlideIndex) => prevSlideIndex - 1);
+    } else if (direction === 'right') {
+      setSlideIndex((prevSlideIndex) => prevSlideIndex + 1);
+    }
+  };
+
+  useEffect(() => {
+    const updateVisibleCards = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth >= 768) {
+        setVisibleCards(5);
+      } else {
+        setVisibleCards(3);
+      }
     };
 
     window.addEventListener('resize', updateVisibleCards);
     updateVisibleCards();
 
     return () => {
-        window.removeEventListener('resize', updateVisibleCards);
+      window.removeEventListener('resize', updateVisibleCards);
     };
-    }, []);
+  }, []);
 
     return (
     <div>

@@ -4,7 +4,7 @@ import { CardWrapper } from '../../../components/cards/CardWrapper';
 import { DetailButton, DetailButtonSize } from '../../../components/detailButton/DetailButton';
 import Icon9 from '../../../assets/productPage/flowers9.jpg'
 
-export const MonoBouquetsCarousel = ({ handleSlide }) => {
+export const MonoBouquetsCarousel = () => {
 
     const monoElements = [
         {
@@ -38,22 +38,34 @@ export const MonoBouquetsCarousel = ({ handleSlide }) => {
             text: "Красивые"
         }
     ]
-    const [slideIndex, setSlideIndex] = useState(0);
-    const [visibleCards, setVisibleCards] = useState(3);
+  const [slideIndex, setSlideIndex] = useState(0);
+  const [visibleCards, setVisibleCards] = useState(3);
 
-    useEffect(() => {
-        const updateVisibleCards = () => {
-        const screenWidth = window.innerWidth;
-        setVisibleCards(screenWidth >= 768 ? 5 : 3);
+  const handleSlide = (direction) => {
+    if (direction === 'left') {
+      setSlideIndex((prevSlideIndex) => prevSlideIndex - 1);
+    } else if (direction === 'right') {
+      setSlideIndex((prevSlideIndex) => prevSlideIndex + 1);
+    }
+  };
+
+  useEffect(() => {
+    const updateVisibleCards = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth >= 768) {
+        setVisibleCards(5);
+      } else {
+        setVisibleCards(3);
+      }
     };
 
     window.addEventListener('resize', updateVisibleCards);
     updateVisibleCards();
 
     return () => {
-        window.removeEventListener('resize', updateVisibleCards);
+      window.removeEventListener('resize', updateVisibleCards);
     };
-    }, []);
+  }, []);
 
     return (
     <div>

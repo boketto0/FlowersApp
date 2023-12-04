@@ -7,6 +7,7 @@ import Header from '../../components/header/Header';
 import './home.css';
 import { ButtonOrderCart } from '../../components/buttonOrderCart/ButtonOrderCart';
 import './home.css';
+import { SimpleCarousel } from '../carousels/carousel/SimpleCarousel'
 
 const Home = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -23,6 +24,7 @@ const Home = () => {
         <ExampleBlock/>
         <ProductPage addToCart={addToCart} />
         <ButtonOrderCart/>
+        <SimpleCarousel/>
     </div>
   );
 };
