@@ -65,14 +65,9 @@ export const AuthorsBouquetsCarousel = () => {
   };
 
   return (
-    <div>
-      <div className='product-page__text__wrapper'>
-        <h2>Авторские букеты</h2>
-        
-      </div>
-      <div className='product-page__carousel__wrapper'>
-        
-        <CardWrapper>
+    <div className="carousel-container-simple">
+      <div className="carousel-simple">
+        <CardWrapper {...handlers}>
           {props.map((style, i) => (
             <animated.div key={i} style={{ ...style }}>
               <Card
@@ -85,7 +80,6 @@ export const AuthorsBouquetsCarousel = () => {
             </animated.div>
           ))}
         </CardWrapper>
-        
       </div>
     </div>
   );
