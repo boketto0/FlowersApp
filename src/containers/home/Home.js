@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import CartPage from '../../user/cartPage/CartPage';
+import CartPage from '../cartPage/CartPage';
 import SearchBox from '../../components/search/SearchBox';
 import { ExampleBlock } from '../exampleBlock/ExampleBlock';
 import ProductPage from '../productPage/ProductPage';
@@ -7,7 +7,6 @@ import Header from '../../components/header/Header';
 import './home.css';
 import { ButtonOrderCart } from '../../components/buttonOrderCart/ButtonOrderCart';
 import './home.css';
-import { SimpleSlider } from '../../components/SimpleSlider';
 
 const Home = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -18,13 +17,12 @@ const Home = () => {
 
   return (
     <div className='home'>
-        {/* <Header/>
-        {/* <Header/>
+        <Header/>
+        <Header/>
         <SearchBox/>
         <ExampleBlock/>
         <ProductPage addToCart={addToCart} />
-        <ButtonOrderCart/> */}
-        <SimpleSlider/>
+        <ButtonOrderCart/>
     </div>
   );
 };
