@@ -7,7 +7,7 @@ import Header from '../../components/header/Header';
 import './home.css';
 import { ButtonOrderCart } from '../../components/buttonOrderCart/ButtonOrderCart';
 import './home.css';
-  import { SimpleCarousel } from '../../components/SimpleCarousel';
+import { SimpleSlider } from '../../components/SimpleSlider';
 
 const Home = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -19,12 +19,12 @@ const Home = () => {
   return (
     <div className='home'>
         {/* <Header/>
+        {/* <Header/>
         <SearchBox/>
         <ExampleBlock/>
         <ProductPage addToCart={addToCart} />
         <ButtonOrderCart/> */}
-      <SimpleCarousel/>
-        {/* <CartPage/> */}
+        <SimpleSlider/>
     </div>
   );
 };
