@@ -24,7 +24,6 @@ const Home = () => {
         <ExampleBlock/>
         <ProductPage addToCart={addToCart} />
         <ButtonOrderCart/>
-        <SimpleCarousel/>
     </div>
   );
 };

@@ -1,12 +1,10 @@
 .card {
-    display: flex;
-    flex-direction: row;
-    gap: 1vw;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    align-self: center;
-    overflow-x: auto;
-    width: 100vw;
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap; 
+  overflow-x: auto; 
+  width: 100vw;
 }
-

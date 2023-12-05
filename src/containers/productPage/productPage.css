@@ -1,25 +1,25 @@
 .product-page__wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 124px;
-    flex-direction: column;
-    position: relative;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 124px;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
 }
 
 .product-page__text__wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
 }
 
 .product-page__carousel__wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;  /* Выравниваем внизу */
+  flex-direction: row;
+  width: 100%;
 }
