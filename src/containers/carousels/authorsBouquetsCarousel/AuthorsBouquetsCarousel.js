@@ -102,7 +102,7 @@ export const AuthorsBouquetsCarousel = () => {
       <div>
         <CardWrapper>
           {props.map(({ x }, index) => (
-            <animated.div key={index} style={{ x }}>
+            <animated.div key={index} style={{ }}>
               {authorsElements[index] && (
                 <Card
                   cardType={CardType.FIRST}
