@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useSprings, animated } from "react-spring";
 import { useSwipeable } from "react-swipeable";
-import { ButtonOrderCart } from "../../../components/buttonOrderCart/ButtonOrderCart";
+import { Button, ButtonSize } from "../../../components/button/Button";
 import { Card, CardType } from '../../../components/cards/Card';
 import { CardWrapper } from '../../../components/cards/CardWrapper';
 import { DetailButton, DetailButtonSize } from '../../../components/detailButton/DetailButton';
@@ -22,52 +22,58 @@ export const AuthorsBouquetsCarousel = () => {
       image: <img className='card-first__img' src={Icon6} alt="Flower 6" />,
       price: "3500р",
       title: "Розы",
-      text: "Красивые"
+      text: "Красивые",
+      component:<Button size={ButtonSize.SMALL} colored="white"/>
     },
     {
       image: <img className='card-first__img' src={Icon7} alt="Flower 7" />,
       price: "3500р",
       title: "Розы",
-      text: "Красивые"
+      text: "Красивые",
+      component:<Button size={ButtonSize.SMALL} colored="white"/>
     },
     {
       image: <img className='card-first__img' src={Icon8} alt="Flower 8" />,
       price: "3500р",
       title: "Розы",
-      text: "Красивые"
+      text: "Красивые",
+      component:<Button size={ButtonSize.SMALL} colored="white"/>
     },
     {
       image: <img className='card-first__img' src={Icon9} alt="Flower 9" />,
       price: "3500р",
       title: "Розы",
-      text: "Красивые"
+      text: "Красивые",
+      component:<Button size={ButtonSize.SMALL} colored="white"/>
     },
     {
       image: <img className='card-first__img' src={Icon9} alt="Flower 9" />,
       price: "3500р",
       title: "Розы",
-      text: "Красивые"
+      text: "Красивые",
+      component:<Button size={ButtonSize.SMALL} colored="white"/>
     },
     {
       image: <img className='card-first__img' src={Icon9} alt="Flower 9" />,
       price: "3500р",
       title: "Розы",
-      text: "Красивые"
+      text: "Красивые",
+      component:<Button size={ButtonSize.SMALL} colored="white"/>
     },
     {
       image: <img className='card-first__img' src={Icon9} alt="Flower 9" />,
       price: "3500р",
       title: "Розы",
-      text: "Красивые"
+      text: "Красивые",
+      component:<Button size={ButtonSize.SMALL} colored="white"/>
     },
     {
       
     },
   ];
 
-  const clonedData = authorsElements.map((_, index) => index);
-
-  const [props, api] = useSprings(clonedData.length, (i) => ({
+  
+  const [props, api] = useSprings(authorsElements.length, (i) => ({
     x: (i - index.current) * (cardWidth + gap),
     config: { tension: 80, friction: 30 },
   }));
@@ -79,31 +85,34 @@ export const AuthorsBouquetsCarousel = () => {
   });
 
   const handleSwipe = (direction) => {
-    const nextIndex = (index.current + direction * cardsToScroll + clonedData.length) % clonedData.length;
+    const nextIndex = (index.current + direction * cardsToScroll + authorsElements.length) % authorsElements.length;
 
     if (nextIndex !== 0) {
       index.current = nextIndex;
-      api.start((i) => ({ x: (i - (index.current - 4)) * (cardWidth + gap) }));
+      api.start((i) => ({ x: (i - (index.current - cardsToScroll)) * (cardWidth + gap) }));
     }
   };
 
- return (
-    <div className="carousel-container-simple" {...handlers}>
+  return (
+    <div {...handlers}>
       <div className='product-page__text__wrapper'>
         <h2>Авторские букеты</h2>
         <DetailButton direction={'right'} size={DetailButtonSize.MEDIUM} />
       </div>
-      <div className="carousel-simple">
+      <div>
         <CardWrapper>
-          {props.map((style, i) => (
-            <animated.div key={i} style={{ ...style }}>
-              <Card
-                cardType={CardType.FIRST}
-                image={authorsElements[clonedData[i]].image}
-                price={authorsElements[clonedData[i]].price}
-                title={authorsElements[clonedData[i]].title}
-                text={authorsElements[clonedData[i]].text}
-              />
+          {props.map(({ x }, index) => (
+            <animated.div key={index} style={{ x }}>
+              {authorsElements[index] && (
+                <Card
+                  cardType={CardType.FIRST}
+                  image={authorsElements[index].image}
+                  price={authorsElements[index].price}
+                  title={authorsElements[index].title}
+                  text={authorsElements[index].text}
+                  component={<Button size={ButtonSize.SMALL} colored="white" />}
+                />
+              )}
             </animated.div>
           ))}
         </CardWrapper>

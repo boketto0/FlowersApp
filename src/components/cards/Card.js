@@ -22,7 +22,7 @@ export const Card = (props) => {
             <span className='card-first__price'>{props.price}</span>
             <div className="card-title">{props.title}</div>
             <div className="card-text">{props.text}</div>
-            <Button size={ButtonSize.SMALL} colored="white"/>
+            <div>{props.component}</div>
           </div>
         )}
         {props.cardType === CardType.SECOND && (

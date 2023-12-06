@@ -7,6 +7,7 @@ import Icon2 from '../../../assets/productPage/flowers2.jpg'
 import Icon3 from '../../../assets/productPage/flowers3.jpg'
 import Icon4 from '../../../assets/productPage/flowers4.jpg'
 import Icon5 from '../../../assets/productPage/flowers5.jpg'
+import { Button, ButtonSize } from '../../../components/button/Button';
 
 export const BasketBouquetsCarousel = ( ) => {
 
@@ -15,31 +16,36 @@ export const BasketBouquetsCarousel = ( ) => {
             image: <img className='card-first__img' src={Icon1}/>,
             price: "3500р",
             title: "Розы",
-            text: "Красивые"
+            text: "Красивые",
+            component:<Button size={ButtonSize.SMALL} colored="white"/>
         },
         {
             image: <img className='card-first__img' src={Icon2}/>,
             price: "3500р",
             title: "Розы",
-            text: "Красивые"
+            text: "Красивые",
+            component:<Button size={ButtonSize.SMALL} colored="white"/>
         },
         {
             image: <img className='card-first__img' src={Icon3}/>,
             price: "3500р",
             title: "Розы",
-            text: "Красивые"
+            text: "Красивые",
+            component:<Button size={ButtonSize.SMALL} colored="white"/>
         },
         {
             image: <img className='card-first__img' src={Icon4}/>,
             price: "3500р",
             title: "Розы",
-            text: "Красивые"
+            text: "Красивые",
+            component:<Button size={ButtonSize.SMALL} colored="white"/>
         },
         {
             image: <img className='card-first__img' src={Icon5}/>,
             price: "3500р",
             title: "Розы",
-            text: "Красивые"
+            text: "Красивые",
+            component:<Button size={ButtonSize.SMALL} colored="white"/>
         },
     ]
   const [slideIndex, setSlideIndex] = useState(0);
@@ -90,6 +96,7 @@ export const BasketBouquetsCarousel = ( ) => {
                         price={bel.price}
                         title={bel.title}
                         text={bel.text}
+                        component={bel.component}
                     />
                 </div>
             ))}

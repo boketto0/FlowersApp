@@ -1,5 +1,5 @@
 import React from 'react';
-import './searchBox.css'; // Создайте стиль (CSS) для компонента
+import './searchBox.css';
 
 const SearchBox = () => {
   return (
