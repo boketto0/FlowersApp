@@ -1,10 +1,11 @@
 import './header.css';
+import { SearchBox } from '../search/SearchBox'
 
 const Header = () => {
 
     return (
         <div className='header__wrapper'>
-            {/* <h5>Цветы</h5> */}
+            <SearchBox/>
         </div>
     );
 };

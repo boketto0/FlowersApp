@@ -1,10 +1,10 @@
 import React from 'react';
 import './searchBox.css';
 
-const SearchBox = () => {
+export const SearchBox = () => {
   return (
-    <div className='search-box__wrapper'>
-      <div className="search-box-container">
+    <div>
+      <div>
         <div className="search-box">
           <span className="search-icon">&#128269;</span>
           <input type="text" placeholder="Быстрый поиск" />
@@ -14,4 +14,3 @@ const SearchBox = () => {
   );
 };
 
-export default SearchBox;

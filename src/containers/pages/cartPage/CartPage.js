@@ -2,10 +2,10 @@ import React from 'react';
 import { ButtonCart } from '../../../components/buttonCart/ButtonCart';
 import { Card, CardType } from '../../../components/cards/Card';
 import { CardWrapperCart } from '../../../components/cards/CardWrapperCart';
-import Icon1 from '../../assets/productPage/flowers1.jpg';
-import Icon2 from '../../assets/productPage/flowers2.jpg';
-import Icon3 from '../../assets/productPage/flowers3.jpg';
-import Icon4 from '../../assets/productPage/flowers4.jpg';
+import Icon1 from "../../../assets/productPage/flowers1.jpg"
+import Icon2 from '../../../assets/productPage/flowers2.jpg';
+import Icon3 from '../../../assets/productPage/flowers3.jpg';
+import Icon4 from '../../../assets/productPage/flowers4.jpg';
 import './cartPage.css';
 
 const CartPage = ({ cartItems }) => {
