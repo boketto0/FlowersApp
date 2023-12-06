@@ -54,6 +54,9 @@ export const BasketBouquetsCarousel = ( ) => {
             text: "Красивые",
             component:<Button size={ButtonSize.SMALL} colored="white"/>
         },
+        {
+          component: <DetailButton direction={'right'} size={DetailButtonSize.SMALL} />,
+        }
     ]
 
     const [props, api] = useSprings(basketElements.length, (i) => ({

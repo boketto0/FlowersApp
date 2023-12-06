@@ -68,7 +68,8 @@ export const AuthorsBouquetsCarousel = () => {
       component:<Button size={ButtonSize.SMALL} colored="white"/>
     },
     {
-      
+      component: <DetailButton direction={'right'} size={DetailButtonSize.SMALL} />,
+      // text: "Все товары",
     },
   ];
 
@@ -110,7 +111,7 @@ export const AuthorsBouquetsCarousel = () => {
                   price={authorsElements[index].price}
                   title={authorsElements[index].title}
                   text={authorsElements[index].text}
-                  component={<Button size={ButtonSize.SMALL} colored="white" />}
+                  component={authorsElements[index].component}
                 />
               )}
             </animated.div>

@@ -5,7 +5,7 @@
   margin-bottom: 124px;
   flex-direction: column;
   position: relative;
-  width: 100%;
+  width: 98%;
 }
 
 .product-page__text__wrapper {
@@ -19,7 +19,7 @@
 .product-page__carousel__wrapper {
   display: flex;
   justify-content: center;
-  align-items: flex-end;  /* Выравниваем внизу */
+  align-items: flex-end;
   flex-direction: row;
-  width: 100%;
+  width: 98%;
 }

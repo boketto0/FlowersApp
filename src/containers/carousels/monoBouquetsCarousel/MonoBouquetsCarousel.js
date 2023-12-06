@@ -51,7 +51,7 @@ export const MonoBouquetsCarousel = () => {
             component:<Button size={ButtonSize.SMALL} colored="white"/>
         },
         {
-
+          component: <DetailButton direction={'right'} size={DetailButtonSize.SMALL} />,
         },
     ]
 
@@ -93,7 +93,7 @@ export const MonoBouquetsCarousel = () => {
                         price={monoElements[index].price}
                         title={monoElements[index].title}
                         text={monoElements[index].text}
-                        component={<Button size={ButtonSize.SMALL} colored="white" />}
+                        component={monoElements[index].component}
                         />
                         )}
                 </animated.div>

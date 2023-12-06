@@ -1,10 +1,10 @@
 .card {
   display: flex;
   flex-direction: row;
-  gap: 1vw;
+  gap: 2vw;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: nowrap; 
   overflow-x: auto; 
-  width: 100vw;
+  width: 96vw;
 }

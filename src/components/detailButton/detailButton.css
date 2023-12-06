@@ -2,10 +2,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #dbdbdb;
     margin: 2vw;
-    position: absolute;
-    z-index: 100;
+    /* position: absolute;
+    z-index: 100; */
 }
 
 .detail-button.left {
@@ -25,10 +24,13 @@
 }
 
 .detail-button-small {
-    width: 24px;
-    height: 24px;
-    font-size: 3vw;
-    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    font-size: 5vw;
+    border-radius: 50%;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 5px #ccc;
+    margin-top: 64px;
 }
 
 .detail-button-medium {
@@ -36,4 +38,20 @@
     height: 10vw;
     font-size: 4vw;
     border-radius: 15px;
+    background-color: #dbdbdb;
+}
+
+@media screen and (min-width: 1200px) {
+    .detail-button-medium {
+        width: 8vh;
+        height: 8vh;
+        font-size: 2vh;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .detail-button-medium {
+        width: 6vh;
+        height: 4vh;
+        font-size: 2.5vh;
+    }
 }
