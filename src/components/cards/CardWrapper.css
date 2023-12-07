@@ -1,4 +1,4 @@
-.card {
+.cardwrapper-first {
   display: flex;
   flex-direction: row;
   gap: 2vw;
@@ -8,3 +8,26 @@
   overflow-x: auto; 
   width: 96vw;
 }
+
+.cardwrapper-second {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    align-self: center;
+    width: auto;
+}
+
+.cardwrapper-third {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100vw;
+    margin-top: 120px;
+}
+

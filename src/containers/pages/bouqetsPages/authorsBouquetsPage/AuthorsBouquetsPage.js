@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Card, CardType } from '../../../../components/cards/Card';
-import { CardWrapper } from '../../../../components/cards/CardWrapper';
 import { Button, ButtonSize } from '../../../../components/button/Button';
 import { DetailButton, DetailButtonSize } from '../../../../components/detailButton/DetailButton';
-import { CardWrapperPages } from '../../../../components/cards/cardWrapperPages/CardWrapperPages';
+import { CardWrapper, CardWrapperType } from '../../../../components/cards/CardWrapper';
 import Header from '../../../../components/header/Header';
 import Icon6 from '../../../../assets/productPage/flowers6.jpg'
 import Icon7 from '../../../../assets/productPage/flowers7.jpg';
@@ -70,7 +69,7 @@ export const AuthorsBouquetsPage = ( ) => {
             <Header>
               Авторские букеты
             </Header>
-            <CardWrapperPages>
+            <CardWrapper type={CardWrapperType.THIRD}>
                 {authorsElements
                 .map((authorsElements, index) => (
                     <div key={index}>
@@ -84,7 +83,7 @@ export const AuthorsBouquetsPage = ( ) => {
                     />
                     </div>
                 ))}
-        </CardWrapperPages>
+        </CardWrapper>
         </div>
     );
 };

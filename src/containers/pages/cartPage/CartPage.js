@@ -1,7 +1,7 @@
 import React from 'react';
 import { ButtonCart } from '../../../components/buttonCart/ButtonCart';
 import { Card, CardType } from '../../../components/cards/Card';
-import { CardWrapperCart } from '../../../components/cards/CardWrapperCart';
+import { CardWrapper, CardWrapperType } from '../../../components/cards/CardWrapper';
 import Icon1 from "../../../assets/productPage/flowers1.jpg"
 import Icon2 from '../../../assets/productPage/flowers2.jpg';
 import Icon3 from '../../../assets/productPage/flowers3.jpg';
@@ -40,7 +40,7 @@ const CartPage = ({ cartItems }) => {
   return (
     <div className='cartpage__wrapper'>
       <h2>Корзина</h2>
-      <CardWrapperCart>
+      <CardWrapper type={CardWrapperType.SECOND}>
           {data.map((d) => (
             <div key={d.id}>
               <Card
@@ -52,7 +52,7 @@ const CartPage = ({ cartItems }) => {
               />
             </div>
           ))}
-        </CardWrapperCart>
+        </CardWrapper>
         <ButtonCart/>
     </div>
   );
