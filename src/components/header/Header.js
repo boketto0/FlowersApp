@@ -1,11 +1,11 @@
 import './header.css';
 import { SearchBox } from '../search/SearchBox'
 
-const Header = () => {
+const Header = ({children}) => {
 
     return (
         <div className='header__wrapper'>
-            <SearchBox/>
+          {children}
         </div>
     );
 };

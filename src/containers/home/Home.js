@@ -4,6 +4,7 @@ import Header from '../../components/header/Header';
 import { ExampleBlock } from '../exampleBlock/ExampleBlock';
 import ProductPage from '../pages/productPage/ProductPage';
 import './home.css';
+import { SearchBox } from '../../components/search/SearchBox';
 
 const Home = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -14,8 +15,9 @@ const Home = () => {
 
   return (
     <div className='home'>
-        <Header/>
-        <Header/>
+        <Header>
+          <SearchBox/>
+        </Header>
         <ExampleBlock/>
         <ProductPage addToCart={addToCart} />
         <ButtonOrderCart/>

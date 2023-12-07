@@ -62,14 +62,14 @@ export const AuthorsBouquetsPage = ( ) => {
             text: "Красивые",
             component:<Button size={ButtonSize.SMALL} colored="white"/>
         },
-        {
-            component: <DetailButton direction={'right'} size={DetailButtonSize.SMALL} />,
-        },
+
     ];
 
     return (
         <div className='authorpage__wrapper'>
-            <Header/>
+            <Header>
+              Авторские букеты
+            </Header>
             <CardWrapperPages>
                 {authorsElements
                 .map((authorsElements, index) => (
