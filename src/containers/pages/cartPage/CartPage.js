@@ -1,59 +1,37 @@
+// Ваш файл с компонентом CartPage.js
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart as addToCartAction } from '../../../assets/action';
 import { ButtonCart } from '../../../components/buttonCart/ButtonCart';
 import { Card, CardType } from '../../../components/cards/Card';
 import { CardWrapper, CardWrapperType } from '../../../components/cards/CardWrapper';
-import Icon1 from "../../../assets/productPage/flowers1.jpg"
-import Icon2 from '../../../assets/productPage/flowers2.jpg';
-import Icon3 from '../../../assets/productPage/flowers3.jpg';
-import Icon4 from '../../../assets/productPage/flowers4.jpg';
 import './cartPage.css';
 
-const CartPage = ({ cartItems }) => {
+const CartPage = () => {
+  const cartItems = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
-  const data = [
-    {
-      image: <img className='card-second__img' src={Icon1}/>,
-      price: "3500р",
-      title: "Розы",
-      text: "Красивые"
-    },
-    {
-      image: <img className='card-second__img' src={Icon2}/>,
-      price: "3500р",
-      title: "Розы",
-      text: "Красивые"
-    },
-    {
-      image: <img className='card-second__img' src={Icon3}/>,
-      price: "3500р",
-      title: "Розы",
-      text: "Красивые"
-    },
-    {
-      image: <img className='card-second__img' src={Icon4}/>,
-      price: "3500р",
-      title: "Розы",
-      text: "Красивые"
-    },
-  ]
-  
+  const addToCart = (item) => {
+    dispatch(addToCartAction(item));
+  };
+
   return (
     <div className='cartpage__wrapper'>
       <h2>Корзина</h2>
       <CardWrapper type={CardWrapperType.SECOND}>
-          {data.map((d) => (
-            <div key={d.id}>
-              <Card
-                cardType={CardType.SECOND}
-                image={d.image}
-                price={d.price}
-                title={d.title}
-                text={d.text}
-              />
-            </div>
-          ))}
-        </CardWrapper>
-        <ButtonCart/>
+        {cartItems && cartItems.map((item, index) => (
+          <div key={index}>
+            <Card
+              cardType={CardType.SECOND}
+              image={item.image}
+              price={item.price}
+              title={item.title}
+              text={item.text}
+            />
+          </div>
+        ))}
+      </CardWrapper>
+      <ButtonCart />
     </div>
   );
 };

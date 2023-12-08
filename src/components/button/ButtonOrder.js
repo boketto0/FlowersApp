@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { ButtonOrderCart } from '../buttonOrderCart/ButtonOrderCart';
+import { useNavigate } from 'react-router-dom';
 import './button.css';
 
-export const Button = (props) => {
-  const { onClick, children, onAddToCart, counter } = props;
+export const ButtonOrder = (props) => {
+  const { onClick, children, size, colored, disableOrderCart, onAddToCart, counter } = props;
 
   const [count, setCount] = useState(counter || 0);
   const [showCounter, setShowCounter] = useState(counter > 0);
-  const [showOrderButton, setShowOrderButton] = useState(false);
 
   useEffect(() => {
     if (counter !== undefined) {
@@ -20,9 +19,10 @@ export const Button = (props) => {
     const newCount = count + 1;
     setCount(newCount);
     setShowCounter(true);
-    onAddToCart && onAddToCart();
+    if (!disableOrderCart) {
+      onAddToCart && onAddToCart();
+    }
     onClick && onClick(newCount);
-    setShowOrderButton(true);
   };
 
   const handleMinusClick = () => {
@@ -31,7 +31,6 @@ export const Button = (props) => {
       setCount(newCount);
     } else {
       setShowCounter(false);
-      setShowOrderButton(false);
     }
     onClick && onClick(count);
   };
@@ -40,14 +39,12 @@ export const Button = (props) => {
 
   return (
     <div>
-      <button className="button">
+      <button className="button-order">
         {showCounter && <span onClick={handleMinusClick}>-</span>}
         {showCounter && <span onClick={handlePlusClick}>{count}</span>}
-        <span className='button__icon' onClick={handlePlusClick}>+</span>
+        <span className='button-order__icon' onClick={handlePlusClick}>+</span>
         {children}
       </button>
-      
-      {showOrderButton && <ButtonOrderCart isVisible={true} counter={count} />}
     </div>
   );
 };

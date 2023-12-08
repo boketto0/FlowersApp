@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Card.css';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 import { Button } from '../button/Button';
-import { ButtonSize } from '../button/Button';
+import { ButtonOrder } from '../button/ButtonOrder';
 
 export const CardType = {
   FIRST: "first",
@@ -11,6 +11,19 @@ export const CardType = {
 };
 
 export const Card = (props) => {
+
+  const [buttonClickCount, setButtonClickCount] = useState(0);
+  const [orderButtonClickCount, setOrderButtonClickCount] = useState(0);
+
+  const handleButtonClick = () => {
+    if (props.price && props.text && props.title && props.image) {
+      console.log('Button clicked with id:', props.image, props.title, props.text, props.price);
+      setButtonClickCount(buttonClickCount + 1);
+      setOrderButtonClickCount(buttonClickCount + 1);
+      props.onClick && props.onClick(props.image, props.title, props.text, props.price);
+    }
+  };
+
   const defaultCardType = CardType.FIRST;
 
   return (
@@ -22,7 +35,7 @@ export const Card = (props) => {
             <span className='card-first__price'>{props.price}</span>
             <div className="card-title">{props.title}</div>
             <div className="card-text">{props.text}</div>
-            <div>{props.component}</div>
+            <Button onClick={handleButtonClick} counter={buttonClickCount} />
           </div>
         )}
         {props.cardType === CardType.SECOND && (
@@ -33,30 +46,21 @@ export const Card = (props) => {
               <div className="card-text">{props.text}</div>
               <span className='card-first__price'>{props.price}</span>
             </div>
-            <Button size={ButtonSize.MEDIUM} colored="gray" disableOrderCart/>
+            <ButtonOrder counter={orderButtonClickCount} />
           </div>
         )}
-        {/* {props.cardType === CardType.THIRD && (
-          <div>
-            <div className='card-component'>{props.component}</div>
-            <div>{props.cell}</div>
-            <div className="card-title">{props.title}</div>
-            <div className="card-text">{props.text}</div>
-            <div>{props.documentation}</div>
-          </div>
-        )} */}
       </div>
     </div>
   );
 };
 
-/* eslint react/prop-types: 0 */
-
 Card.propTypes = {
-    cardType: PropTypes.oneOf(Object.values(CardType)),
-    cell: PropTypes.node,
-    title: PropTypes.string, 
-    text: PropTypes.string, 
-    component: PropTypes.node,
-    documentation: PropTypes.node
-}
+  id: PropTypes.number.isRequired,
+  cardType: PropTypes.oneOf(Object.values(CardType)),
+  cell: PropTypes.node,
+  title: PropTypes.string,
+  text: PropTypes.string,
+  component: PropTypes.node,
+  documentation: PropTypes.node,
+  onClick: PropTypes.func,
+};

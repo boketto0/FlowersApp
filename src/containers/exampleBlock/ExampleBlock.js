@@ -6,25 +6,35 @@ import Icon3 from '../../assets/exampleBlock/img3.jpg'
 
 export const ExampleBlock = () => {
 
-    const navigate = useNavigate();
+    const navigateAuthor = useNavigate();
+    const navigateBasket = useNavigate();
+    const navigateMono= useNavigate();
 
-    const handlePictureClick = () => {
-    navigate('/authorsBouquets');
+    const handlePageAuthorsClick = () => {
+    navigateAuthor('/authorsBouquets');
     };
+
+    const handlePageMonoClick = () => {
+        navigateMono('/monoBouquets');
+        };
+
+    const handlePageBasketClick = () => {
+        navigateBasket('/basketBouquets');
+        };
 
 
     return (
         <div className='example-block__wrapper'>
             <div className='example-cards__wrapper'>
-                <img onClick={handlePictureClick} src={Icon1}></img>
+                <img onClick={handlePageAuthorsClick} src={Icon1}></img>
                 <span>Авторские букеты</span>
             </div>
             <div className='example-cards__wrapper'>
-                <img src={Icon2}></img>
+                <img onClick={handlePageMonoClick} src={Icon2}></img>
                 <span>Моно букеты</span>
             </div>
             <div className='example-cards__wrapper'>
-                <img src={Icon3}></img>
+                <img onClick={handlePageBasketClick} src={Icon3}></img>
                 <span>Букеты в корзинках</span>
             </div>
         </div>
