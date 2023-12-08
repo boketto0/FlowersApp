@@ -11,12 +11,11 @@ const CartPage = () => {
   const dispatch = useDispatch();
 
   if (!cartItems) {
-    return null; // или другая логика, если cartItems не определено
+    return null;
   }
 
   const handleRemoveFromCart = (index) => {
-    // Добавьте действие удаления из корзины
-    // dispatch(removeFromCartAction(index));
+
   };
 
   return (
