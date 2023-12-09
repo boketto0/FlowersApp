@@ -1,4 +1,4 @@
-import { Button } from '../components/button/Button';
+import { Button, ButtonSize } from '../components/button/Button';
 import { DetailButton, DetailButtonSize } from '../components/detailButton/DetailButton';
 import { useNavigate } from 'react-router-dom';
 import Icon1 from '../assets/productPage/flowers1.jpg'
@@ -49,7 +49,7 @@ export const monoElements = [
         id: 5,
         image: <img className='card-first__img' src={Icon9}/>,
         price: "3500р",
-        title: "Розы",
+        title: "Авторские розы",
         text: "Красивые",
         component:<Button/>
     },
@@ -63,7 +63,7 @@ export const basketElements = [
         id: 1,
         image: <img className='card-first__img' src={Icon1}/>,
         price: "5500р",
-        title: "Розы",
+        title: "Букеты из роз",
         text: "Красивые",
         component:<Button/>
     },

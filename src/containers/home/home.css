@@ -6,3 +6,14 @@
     flex-direction: column;
     gap: 32px;
 }
+
+.home-visible {
+    visibility: visible;
+    display: contents;
+  }
+  
+  .home-visible.hidden {
+    visibility: hidden;
+    display: none;
+  }
+  

@@ -8,6 +8,15 @@
   width: 98%;
 }
 
+.product-page__wrapper .visible {
+  display: block;
+}
+
+.product-page__wrapper .hidden {
+  display: none;
+}
+
+
 .product-page__text__wrapper {
   display: flex;
   justify-content: space-between;
