@@ -7,7 +7,8 @@ import CartPage from './containers/pages/cartPage/CartPage';
 import { AuthorsBouquetsPage } from './containers/pages/bouqetsPages/authorsBouquetsPage/AuthorsBouquetsPage';
 import { BasketBouquetsPage } from './containers/pages/bouqetsPages/basketBouquetsPage/BasketBouquetsPage';
 import { MonoBouquetsPage } from './containers/pages/bouqetsPages/monoBouquetsPage/MonoBouquetsPage';
-import store from './assets/store/store';
+
+import { store } from './assets/store/store';
 
 const App = () => {
   return (

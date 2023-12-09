@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
-import './Card.css';
+import React, { memo, useCallback, useMemo, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types';
+
 import { Button } from '../button/Button';
 import { ButtonOrder } from '../button/ButtonOrder';
+
+import { cartActions } from '../../assets/store/slices/cartSlice';
+
+import './Card.css';
 
 export const CardType = {
   FIRST: "first",
@@ -10,57 +15,73 @@ export const CardType = {
   THIRD: "third"
 };
 
-export const Card = (props) => {
+export const Card = memo((props) => {
+  const { cartItem, cardType} = props;
 
-  const [buttonClickCount, setButtonClickCount] = useState(0);
-  const [orderButtonClickCount, setOrderButtonClickCount] = useState(0);
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cartStore.cart);
 
-  const handleButtonClick = () => {
-    if (props.price && props.text && props.title && props.image) {
-      console.log('Button clicked with id:', props.image, props.title, props.text, props.price);
-      setButtonClickCount(buttonClickCount + 1);
-      setOrderButtonClickCount(buttonClickCount + 1);
-      props.onClick && props.onClick(props.image, props.title, props.text, props.price);
+  const itemCount = useMemo(() => {
+    const addedItems = cartItems?.filter((item) => item.id === cartItem.id) || [];
+
+    return addedItems.length;
+  }, [cartItem, cartItems]);
+
+  const handleAddToCart = useCallback(() => {
+    const { price, text, title, id } = cartItem;
+
+    if (price && text && title) {
+      dispatch(cartActions.addToCart({ price, text, title, id, }))
     }
-  };
+  }, [dispatch, cartItem]);
+
+  const handleRemoveFromCart = useCallback(() => {
+    const { price, text, title, id } = cartItem;
+
+    if (price && text && title) {
+      dispatch(cartActions.removeFromCart(id))
+    }
+  }, [cartItem, dispatch]);
 
   const defaultCardType = CardType.FIRST;
 
   return (
     <div>
-      <div className={`card-${props.cardType || defaultCardType}`}>
-        {props.cardType === CardType.FIRST && (
+      <div className={`card-${cardType || defaultCardType}`}>
+        {cardType === CardType.FIRST && (
           <div>
-            <div className='card-first__img'>{props.image}</div>
-            <span className='card-first__price'>{props.price}</span>
-            <div className="card-title">{props.title}</div>
-            <div className="card-text">{props.text}</div>
-            <Button onClick={handleButtonClick} counter={buttonClickCount} />
+            {/* <div className='card-first__img'>
+            <img src={cartItem.image} alt="preview" />
+          }</div> */}
+            <div className='card-first__img'>{cartItem.image}</div>
+            <span className='card-first__price'>{cartItem.price}</span>
+            <div className="card-title">{cartItem.title}</div>
+            <div className="card-text">{cartItem.text}</div>
+            <Button onAdd={handleAddToCart} onRemove={handleRemoveFromCart} value={itemCount} />
           </div>
         )}
-        {props.cardType === CardType.SECOND && (
+        {cardType === CardType.SECOND && (
           <div className='card-second'>
-            <div className='card-second__img'>{props.image}</div>
+            <div className='card-second__img'>{cartItem.image}</div>
             <div className='card-second__content__wrapper'>
-              <div className="card-title">{props.title}</div>
-              <div className="card-text">{props.text}</div>
-              <span className='card-first__price'>{props.price}</span>
+              <div className="card-title">{cartItem.title}</div>
+              <div className="card-text">{cartItem.text}</div>
+              <span className='card-first__price'>{cartItem.price}</span>
             </div>
-            <ButtonOrder counter={orderButtonClickCount} />
+            <Button onAdd={handleAddToCart} onRemove={handleRemoveFromCart} value={itemCount} />
           </div>
         )}
       </div>
     </div>
   );
-};
+});
 
 Card.propTypes = {
-  id: PropTypes.number.isRequired,
+  cartItem: PropTypes.object.isRequired,
+  // id: PropTypes.number.isRequired,
   cardType: PropTypes.oneOf(Object.values(CardType)),
-  cell: PropTypes.node,
-  title: PropTypes.string,
-  text: PropTypes.string,
-  component: PropTypes.node,
-  documentation: PropTypes.node,
+  // title: PropTypes.string,
+  // text: PropTypes.string,
+  // component: PropTypes.node,
   onClick: PropTypes.func,
 };

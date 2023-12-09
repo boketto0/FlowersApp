@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
 import { ButtonOrderCart } from '../../components/buttonOrderCart/ButtonOrderCart';
 import Header from '../../components/header/Header';
 import { ExampleBlock } from '../exampleBlock/ExampleBlock';
@@ -9,13 +10,10 @@ import { Card, CardType } from '../../components/cards/Card';
 import { CardWrapper, CardWrapperType } from '../../components/cards/CardWrapper';
 
 const Home = () => {
-  const [cartItems, setCartItems] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
 
-  const addToCart = (product) => {
-    setCartItems([...cartItems, product]);
-  };
+  const cartItems = useSelector((state) => state.cartStore.cart);
 
   const handleSearchResults = (results) => {
     setSearchResults(results);
@@ -63,7 +61,7 @@ const Home = () => {
         <ProductPage />
       </div>
 
-      <ButtonOrderCart />
+      {cartItems?.length > 0  && <ButtonOrderCart />}
     </div>
   );
 };

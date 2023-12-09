@@ -13,6 +13,14 @@ import Icon9 from '../assets/productPage/flowers9.jpg';
 
 
 export const monoElements = [
+    // {
+    //     id: 1,
+    //     image_src: Icon9,
+    //     price: "3500р",
+    //     title: "Розы",
+    //     text: "Красивые",
+    //     component:<Button/>
+    // },
     {
         id: 1,
         image: <img className='card-first__img' src={Icon9}/>,
@@ -60,7 +68,7 @@ export const monoElements = [
 
 export const basketElements = [
     {
-        id: 1,
+        id: 6,
         image: <img className='card-first__img' src={Icon1}/>,
         price: "5500р",
         title: "Букеты из роз",
@@ -68,7 +76,7 @@ export const basketElements = [
         component:<Button/>
     },
     {
-        id: 2,
+        id: 7,
         image: <img className='card-first__img' src={Icon2}/>,
         price: "6500р",
         title: "Розы",
@@ -76,7 +84,7 @@ export const basketElements = [
         component:<Button/>
     },
     {
-        id: 3,
+        id: 8,
         image: <img className='card-first__img' src={Icon3}/>,
         price: "7500р",
         title: "Розы",
@@ -84,7 +92,7 @@ export const basketElements = [
         component:<Button/>
     },
     {
-        id: 4,
+        id: 9,
         image: <img className='card-first__img' src={Icon4}/>,
         price: "8500р",
         title: "Розы",
@@ -92,7 +100,7 @@ export const basketElements = [
         component:<Button/>
     },
     {
-        id: 5,
+        id: 10,
         image: <img className='card-first__img' src={Icon5}/>,
         price: "9500р",
         title: "Розы",
@@ -107,7 +115,7 @@ export const basketElements = [
 
 export const authorsElements = [
 {
-  id: 1,
+  id: 11,
   image: <img className='card-first__img' src={Icon6} alt="Flower 6" />,
   price: "3500р",
   title: "Розы",
@@ -115,7 +123,7 @@ export const authorsElements = [
   component:<Button/>
 },
 {
-  id: 2,
+  id: 12,
   image: <img className='card-first__img' src={Icon7} alt="Flower 7" />,
   price: "3500р",
   title: "Розы",
@@ -123,7 +131,7 @@ export const authorsElements = [
   component:<Button/>
 },
 {
-  id: 3,
+  id: 13,
   image: <img className='card-first__img' src={Icon8} alt="Flower 8" />,
   price: "3500р",
   title: "Розы",
@@ -131,7 +139,7 @@ export const authorsElements = [
   component:<Button/>
 },
 {
-  id: 4,
+  id: 14,
   image: <img className='card-first__img' src={Icon9} alt="Flower 9" />,
   price: "3500р",
   title: "Розы",
@@ -139,7 +147,7 @@ export const authorsElements = [
   component:<Button/>
 },
 {
-  id: 4,
+  id: 15,
   image: <img className='card-first__img' src={Icon9} alt="Flower 9" />,
   price: "3500р",
   title: "Розы",
@@ -147,7 +155,7 @@ export const authorsElements = [
   component:<Button/>
 },
 {
-  id: 6,
+  id: 16,
   image: <img className='card-first__img' src={Icon9} alt="Flower 9" />,
   price: "3500р",
   title: "Розы",
@@ -155,7 +163,7 @@ export const authorsElements = [
   component:<Button/>
 },
 {
-  id: 7,
+  id: 17,
   image: <img className='card-first__img' src={Icon9} alt="Flower 9" />,
   price: "3500р",
   title: "Розы",
