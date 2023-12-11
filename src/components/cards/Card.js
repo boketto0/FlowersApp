@@ -2,7 +2,7 @@ import React, { memo, useCallback, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types';
 
-import { Button } from '../button/Button';
+import { Button, ButtonType } from '../button/Button';
 import { ButtonOrder } from '../button/ButtonOrder';
 
 import { cartActions } from '../../assets/store/slices/cartSlice';
@@ -28,15 +28,15 @@ export const Card = memo((props) => {
   }, [cartItem, cartItems]);
 
   const handleAddToCart = useCallback(() => {
-    const { price, text, title, id } = cartItem;
+    const { image, price, text, title, id } = cartItem;
 
-    if (price && text && title) {
-      dispatch(cartActions.addToCart({ price, text, title, id, }))
+    if (image && price && text && title) {
+      dispatch(cartActions.addToCart({ image, price, text, title, id, }))
     }
   }, [dispatch, cartItem]);
 
   const handleRemoveFromCart = useCallback(() => {
-    const { price, text, title, id } = cartItem;
+    const { image, price, text, title, id } = cartItem;
 
     if (price && text && title) {
       dispatch(cartActions.removeFromCart(id))
@@ -52,12 +52,14 @@ export const Card = memo((props) => {
           <div>
             {/* <div className='card-first__img'>
             <img src={cartItem.image} alt="preview" />
-          }</div> */}
+          </div> */}
             <div className='card-first__img'>{cartItem.image}</div>
             <span className='card-first__price'>{cartItem.price}</span>
             <div className="card-title">{cartItem.title}</div>
             <div className="card-text">{cartItem.text}</div>
-            <Button onAdd={handleAddToCart} onRemove={handleRemoveFromCart} value={itemCount} />
+            <div className='card-first__button'>
+              <Button type={ButtonType.PRIMARY} onAdd={handleAddToCart} onRemove={handleRemoveFromCart} value={itemCount} />
+            </div>
           </div>
         )}
         {cardType === CardType.SECOND && (
@@ -68,7 +70,7 @@ export const Card = memo((props) => {
               <div className="card-text">{cartItem.text}</div>
               <span className='card-first__price'>{cartItem.price}</span>
             </div>
-            <Button onAdd={handleAddToCart} onRemove={handleRemoveFromCart} value={itemCount} />
+            <Button type={ButtonType.SECONDARY} className='button-click__cart' onAdd={handleAddToCart} onRemove={handleRemoveFromCart} value={itemCount} />
           </div>
         )}
       </div>

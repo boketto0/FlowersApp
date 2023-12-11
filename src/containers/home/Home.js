@@ -13,7 +13,7 @@ const Home = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
 
-  const cartItems = useSelector((state) => state.cartStore.cart);
+  const cartPositions = useSelector((state) => state.cartStore.cart);
 
   const handleSearchResults = (results) => {
     setSearchResults(results);
@@ -40,20 +40,19 @@ const Home = () => {
       </Header>
 
       <div>
-        <CardWrapper type={CardWrapperType.THIRD}>
-          {searchResults.map((result, index) => (
-            <div key={index}>
-              <Card
-                cardType={CardType.FIRST}
-                image={result.item.image}
-                price={result.item.price}
-                title={result.item.title}
-                text={result.item.text}
-                component={result.item.component}
-              />
-            </div>
-          ))}
-        </CardWrapper>
+      <CardWrapper type={CardWrapperType.THIRD}>
+      {searchResults.map((res, index) => (
+    <div key={index}>
+        <Card
+            cardType={CardType.FIRST}
+            price={res.position.price}
+            title={res.position.title}
+            text={res.position.text}
+            component={res.position.component}
+        />
+    </div>
+))}
+</CardWrapper>
       </div>
 
       <div className={`home-visible ${isSearching ? 'hidden' : ''}`}>
@@ -61,7 +60,7 @@ const Home = () => {
         <ProductPage />
       </div>
 
-      {cartItems?.length > 0  && <ButtonOrderCart />}
+      {cartPositions?.length > 0  && <ButtonOrderCart />}
     </div>
   );
 };

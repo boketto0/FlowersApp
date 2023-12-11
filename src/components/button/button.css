@@ -1,11 +1,33 @@
 .add-btn {
+  box-sizing: border-box;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  background-color: #fff;
-  border-radius: 20px;
+  justify-content: space-around;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.button {
+.add-btn-primary {
+  border-radius: 15px;
+  width: 98%;
+  height: 6vw;
+  font-size: 4vw;
+  background-color: #ffffff;
+  color: #000;
+}
+
+.add-btn-secondary {
+  border-radius: 10px;
+  width: 20vw;
+  height: 6vw;
+  font-size: 4vw;
+  background-color: #dfdfdf;
+  color: #000;
+}
+
+.button-primary {
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -15,10 +37,22 @@
   border-radius: 15px;
   cursor: pointer;
   transition: all 0.3s ease;
-  width: 98%;
-  height: 6vw;
   font-size: 4vw;
-  margin-top: 8px;
+  background-color: #ffffff;
+  color: #000;
+}
+
+.button-secondary {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 4vw;
   background-color: #ffffff;
   color: #000;
 }
@@ -41,8 +75,12 @@
   color: #000;
 }
 
+.add-btn:hover .button {
+  background-color: #ffffff;
+}
+
 .button:hover {
-  background-color: #dcdcdc;
+  background-color:  #ffffff;
 }
 
 .button__icon {

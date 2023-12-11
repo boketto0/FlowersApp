@@ -10,6 +10,10 @@
   padding: 10px;
 }
 
+.card-first__button {
+  margin-top: 5%;
+}
+
 .card-first__img {
   width: 100%;
   height: auto;
@@ -99,8 +103,8 @@
 
 
 .card-second__img {
-  width: 120px;
-  height: 120px;
+  width: 20%;
+  height: auto;
   border-radius: 15px;
 }
 

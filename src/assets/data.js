@@ -13,14 +13,7 @@ import Icon9 from '../assets/productPage/flowers9.jpg';
 
 
 export const monoElements = [
-    // {
-    //     id: 1,
-    //     image_src: Icon9,
-    //     price: "3500р",
-    //     title: "Розы",
-    //     text: "Красивые",
-    //     component:<Button/>
-    // },
+
     {
         id: 1,
         image: <img className='card-first__img' src={Icon9}/>,

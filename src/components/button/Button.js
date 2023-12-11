@@ -2,21 +2,29 @@ import React, { useState, useEffect, memo } from 'react';
 
 import './button.css';
 
-export const Button = memo((props) => {
-  const { onAdd, value, onRemove } = props;
+export const ButtonType = {
+  PRIMARY: "primary", 
+  SECONDARY: "secondary"
+}
+
+export const Button = ((props) => {
+  const { onAdd, value, onRemove, type } = props;
+
+  const buttonClass = `add-btn add-btn-${type}`;
+  const buttonSignClass = `button button-${type}`;
 
   return (
     <>
-      <div className="add-btn">
+      <div className={buttonClass}>
         {typeof value === 'number' && value !== 0 && (
-          <button className="button" onClick={onRemove}>
+          <button className={buttonClass} onClick={onRemove}>
             -
           </button>
         )}
 
         {typeof value === 'number' && value !== 0 && <span>{value}</span>}
 
-        <button className="button" onClick={onAdd}>
+        <button className={buttonClass} onClick={onAdd}>
           +
         </button>
       </div>

@@ -18,10 +18,10 @@ export const SearchBox = ({ onSearchResults, onSearchEnd, onSearchStart }) => {
   const fuse = new Fuse(allElements, options);
 
   const handleSearch = () => {
-    const result = fuse.search(searchQuery);
-    setSearchResults(result);
-    onSearchResults(result);
-    console.log(result);
+    const res = fuse.search(searchQuery);
+    setSearchResults(res);
+    onSearchResults(res);
+    console.log(res);
   };
 
   const handleChange = (e) => {

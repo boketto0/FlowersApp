@@ -41,7 +41,7 @@ const CartPage = () => {
 
       <ButtonCart />
 
-      {uniqueItems.length > 0 && <button onClick={handleClickClear}>Очистить</button> }
+      {uniqueItems.length > 0 && <button className='button__clear' onClick={handleClickClear}>Очистить</button> }
     </div>
   );
 };
