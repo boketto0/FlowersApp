@@ -3,8 +3,18 @@
     flex-wrap: nowrap;
     overflow-x: auto;
     max-width: 90%;
-    margin: 24px auto;
+    margin-bottom: -36px;
+    margin-top: 8px;
 }
+
+.example-block__wrapper .visible {
+    display: block;
+  }
+  
+  .example-block__wrapper .hidden {
+    display: none;
+  }
+  
 
 .example-cards__wrapper {
     display: flex;

@@ -5,4 +5,16 @@
     justify-content: center;
     flex-direction: column;
     gap: 32px;
+    margin-bottom: 128px;
 }
+
+.home-visible {
+    visibility: visible;
+    display: contents;
+  }
+  
+  .home-visible.hidden {
+    visibility: hidden;
+    display: none;
+  }
+  
