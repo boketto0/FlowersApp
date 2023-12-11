@@ -101,6 +101,13 @@
   padding: 24px
 }
 
+.last-card__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+}
 
 .card-second__img {
   width: 20%;

@@ -1,9 +1,11 @@
 import React, { memo, useCallback, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types';
-
+import { DetailButton, DetailButtonSize } from '../detailButton/DetailButton';
 import { Button, ButtonType } from '../button/Button';
 import { ButtonOrder } from '../button/ButtonOrder';
+import { useHistory } from 'react-router-dom';
+
 
 import { cartActions } from '../../assets/store/slices/cartSlice';
 
@@ -16,7 +18,8 @@ export const CardType = {
 };
 
 export const Card = memo((props) => {
-  const { cartItem, cardType} = props;
+
+  const { cartItem, cardType, isLastCard } = props;
 
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cartStore.cart);
@@ -50,15 +53,19 @@ export const Card = memo((props) => {
       <div className={`card-${cardType || defaultCardType}`}>
         {cardType === CardType.FIRST && (
           <div>
-            {/* <div className='card-first__img'>
-            <img src={cartItem.image} alt="preview" />
-          </div> */}
             <div className='card-first__img'>{cartItem.image}</div>
             <span className='card-first__price'>{cartItem.price}</span>
             <div className="card-title">{cartItem.title}</div>
             <div className="card-text">{cartItem.text}</div>
             <div className='card-first__button'>
-              <Button type={ButtonType.PRIMARY} onAdd={handleAddToCart} onRemove={handleRemoveFromCart} value={itemCount} />
+              {isLastCard ? (
+                <div className='last-card__wrapper'>
+                    <DetailButton direction={'right'} size={DetailButtonSize.SMALL} />
+                    <span>Все товары</span>
+                </div>
+              ) : (
+                <Button type={ButtonType.PRIMARY} onAdd={handleAddToCart} onRemove={handleRemoveFromCart} value={itemCount} />
+              )}
             </div>
           </div>
         )}

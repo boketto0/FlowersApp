@@ -10,57 +10,28 @@ import { Card, CardType } from '../../components/cards/Card';
 import { CardWrapper, CardWrapperType } from '../../components/cards/CardWrapper';
 
 const Home = () => {
+
   const [searchResults, setSearchResults] = useState([]);
-  const [isSearching, setIsSearching] = useState(false);
-
-  const cartPositions = useSelector((state) => state.cartStore.cart);
-
-  const handleSearchResults = (results) => {
-    setSearchResults(results);
-    setIsSearching(false);
-  };
-
-  const handleSearchEnd = () => {
-    setSearchResults([]);
-    setIsSearching(false);
-  };
-
-  const handleSearchStart = () => {
-    setIsSearching(true);
-  };
-
+  const cartItems = useSelector((state) => state.cartStore.cart);
   return (
     <div className='home'>
+
       <Header>
-        <SearchBox
-          onSearchResults={handleSearchResults}
-          onSearchEnd={handleSearchEnd}
-          onSearchStart={handleSearchStart}
-        />
+        <SearchBox onSearchResultsChange={setSearchResults} />
       </Header>
 
-      <div>
       <CardWrapper type={CardWrapperType.THIRD}>
-      {searchResults.map((res, index) => (
-    <div key={index}>
-        <Card
-            cardType={CardType.FIRST}
-            price={res.position.price}
-            title={res.position.title}
-            text={res.position.text}
-            component={res.position.component}
-        />
-    </div>
-))}
-</CardWrapper>
-      </div>
+        {searchResults.map((item) => (
+          <Card key={item.id} cartItem={item} cardType={CardType.FIRST} />
+        ))}
+      </CardWrapper>
 
-      <div className={`home-visible ${isSearching ? 'hidden' : ''}`}>
         <ExampleBlock />
         <ProductPage />
-      </div>
 
-      {cartPositions?.length > 0  && <ButtonOrderCart />}
+
+
+        {cartItems?.length > 0  && <ButtonOrderCart />}
     </div>
   );
 };

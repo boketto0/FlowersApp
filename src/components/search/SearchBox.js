@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Fuse from 'fuse.js';
 import './searchBox.css';
 import { authorsElements, monoElements, basketElements } from '../../assets/data';
@@ -6,53 +6,42 @@ import { Card, CardType } from '../cards/Card';
 import { CardWrapper, CardWrapperType } from '../cards/CardWrapper';
 import Header from '../header/Header';
 
-export const SearchBox = ({ onSearchResults, onSearchEnd, onSearchStart }) => {
-  const [searchQuery, setSearchQuery] = useState('');
+export const SearchBox = ({ onSearchResultsChange }) => {
+  const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
-  const options = {
+  const dataToSearch = [...authorsElements, ...monoElements, ...basketElements];
+
+  const fuseOptions = {
     keys: ['title', 'text'],
+    includeScore: true,
   };
 
-  const allElements = [...authorsElements, ...monoElements, ...basketElements];
-  const fuse = new Fuse(allElements, options);
+  const fuse = new Fuse(dataToSearch, fuseOptions);
 
-  const handleSearch = () => {
-    const res = fuse.search(searchQuery);
-    setSearchResults(res);
-    onSearchResults(res);
-    console.log(res);
-  };
-
-  const handleChange = (e) => {
-    const query = e.target.value;
-    setSearchQuery(query);
-    if (query.trim() === '') {
+  useEffect(() => {
+    if (searchTerm.trim() === '') {
       setSearchResults([]);
-      onSearchEnd();
     } else {
-      onSearchStart();
-      handleSearch();
+      const results = fuse.search(searchTerm);
+      setSearchResults(results.map((result) => result.item));
     }
-  };
+  }, [searchTerm, fuse]);
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      handleSearch();
-    }
-  };
+  useEffect(() => {
+    onSearchResultsChange(searchResults);
+  }, [searchResults, onSearchResultsChange]);
 
   return (
     <div>
       <div>
         <div className="search-box">
-          <span onClick={handleSearch} className="search-icon">&#128269;</span>
+          <span className="search-icon">&#128269;</span>
           <input
             type="text"
             placeholder="Быстрый поиск"
-            value={searchQuery}
-            onChange={handleChange}
-            onKeyDown={handleKeyDown}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
       </div>

@@ -36,7 +36,6 @@ export const Carousel = ({ elements, title, wrapperType }) => {
     <div {...handlers}>
       <div className='product-page__text__wrapper'>
         <h2>{title}</h2>
-        <DetailButton direction={'right'} size={DetailButtonSize.MEDIUM} />
       </div>
       <div>
         <CardWrapper type={wrapperType}>
@@ -46,6 +45,7 @@ export const Carousel = ({ elements, title, wrapperType }) => {
                 <Card
                   cardType={CardType.FIRST}
                   cartItem={elements[index]}
+                  isLastCard={index === elements.length - 1}
                 />
               )}
             </animated.div>

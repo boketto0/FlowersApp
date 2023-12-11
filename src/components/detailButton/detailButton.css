@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 2vw;
     /* position: absolute;
     z-index: 100; */
 }
@@ -26,7 +25,7 @@
 .detail-button-small {
     width: 40px;
     height: 40px;
-    font-size: 5vw;
+    font-size: 4vw;
     border-radius: 50%;
     background-color: #ffffff;
     box-shadow: 2px 2px 5px #ccc;
