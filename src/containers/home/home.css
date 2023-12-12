@@ -18,3 +18,7 @@
     display: none;
   }
   
+.no-results-message {
+  margin-top: 120px;
+  color: #a5a5a5;
+}

@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Fuse from 'fuse.js';
 import './searchBox.css';
 import { authorsElements, monoElements, basketElements } from '../../assets/data';
-import { Card, CardType } from '../cards/Card';
-import { CardWrapper, CardWrapperType } from '../cards/CardWrapper';
-import Header from '../header/Header';
+import Icon1 from '../../assets/icons/search.svg'
 
 export const SearchBox = ({ onSearchResultsChange }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -36,7 +34,9 @@ export const SearchBox = ({ onSearchResultsChange }) => {
     <div>
       <div>
         <div className="search-box">
-          <span className="search-icon">&#128269;</span>
+          <span className="search-icon">
+            <img src={Icon1}/>
+          </span>
           <input
             type="text"
             placeholder="Быстрый поиск"

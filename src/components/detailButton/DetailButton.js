@@ -1,5 +1,6 @@
 import React from 'react';
 import './detailButton.css';
+import Icon1 from '../../assets/icons/angle-right.svg'
 
 export const DetailButtonSize = {
     SMALL: 'small',
@@ -11,7 +12,7 @@ export const DetailButton = (props) => {
 
     const detailButtonClass = `detail-button detail-button-${size} ${direction}`;
 
-    const icon = direction === 'right' ? '>' : '<';
+    const icon = direction === 'right' ? <img src={Icon1}/> : '<';
 
     return (
         <div className={detailButtonClass}>

@@ -1,4 +1,3 @@
-// Ваш файл с компонентом CartPage.js
 import React, { useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Card, CardType } from '../../../components/cards/Card';
@@ -6,6 +5,7 @@ import { CardWrapper, CardWrapperType } from '../../../components/cards/CardWrap
 import { ButtonCart } from '../../../components/buttonCart/ButtonCart';
 import './cartPage.css';
 import { cartActions } from '../../../assets/store/slices/cartSlice';
+import Icon1 from '../../../assets/icons/trash.svg'
 
 const CartPage = () => {
   const dispatch = useDispatch();
@@ -41,7 +41,11 @@ const CartPage = () => {
 
       <ButtonCart />
 
-      {uniqueItems.length > 0 && <button className='button__clear' onClick={handleClickClear}>Очистить</button> }
+      {uniqueItems.length > 0 && 
+      <button className='button__clear' onClick={handleClickClear}>
+        <img src={Icon1}/>
+        <h5>Очистить</h5>
+      </button> }
     </div>
   );
 };
