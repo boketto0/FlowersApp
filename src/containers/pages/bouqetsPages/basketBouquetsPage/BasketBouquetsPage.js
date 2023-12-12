@@ -2,29 +2,24 @@ import { basketElements } from '../../../../assets/data';
 import { Card, CardType } from '../../../../components/cards/Card';
 import { CardWrapper, CardWrapperType } from '../../../../components/cards/CardWrapper';
 import Header from '../../../../components/header/Header';
+import { Link } from 'react-router-dom';
+import Icon1 from '../../../../assets/icons/arrow-left.svg'
 
 export const BasketBouquetsPage = ( ) => {
 
     return (
         <div className='authorpage__wrapper'>
             <Header>
-                Букеты в корзинах
+            <Link to="/" className="header__back-button">
+                <img className='header__back__icon' src={Icon1}/>
+            </Link>
+            <h5 className='header__text'>Букеты в корзинах</h5>
             </Header>
             <CardWrapper type={CardWrapperType.THIRD}>
-                {basketElements 
-                .map((basketElements , index) => (
-                    <div key={index}>
-                    <Card
-                        cardType={CardType.FIRST}
-                        image={basketElements.image}
-                        price={basketElements.price}
-                        title={basketElements.title}
-                        text={basketElements.text}
-                        component={basketElements.component}
-                    />
-                    </div>
-                ))}
-        </CardWrapper>
+            {basketElements.slice(0, -1).map((item) => (
+                <Card key={item.id} cartItem={item} cardType={CardType.FIRST} />
+            ))}
+            </CardWrapper>
         </div>
     );
 };

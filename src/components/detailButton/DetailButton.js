@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import './detailButton.css';
 
 export const DetailButtonSize = {
@@ -7,10 +7,9 @@ export const DetailButtonSize = {
 };
 
 export const DetailButton = (props) => {
+    const { handleSlide, size, direction } = props;
 
-    const { onClick, handleSlide, size, direction } = props;
-
-    const detailButtonClass = `detail-button detail-button-${size} ${direction}`
+    const detailButtonClass = `detail-button detail-button-${size} ${direction}`;
 
     const icon = direction === 'right' ? '>' : '<';
 
@@ -20,3 +19,4 @@ export const DetailButton = (props) => {
         </div>
     );
 };
+

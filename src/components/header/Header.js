@@ -1,5 +1,4 @@
 import './header.css';
-import { SearchBox } from '../search/SearchBox'
 
 const Header = ({children}) => {
 

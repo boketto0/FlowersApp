@@ -9,7 +9,7 @@ const cardWidth = 10;
 const gap = 2;
 const cardsToScroll = 3;
 
-export const Carousel = ({ elements, title, wrapperType }) => {
+export const Carousel = ({ elements, title, wrapperType, dataArrayType }) => {
   const index = useRef(0);
 
   const [props, api] = useSprings(elements.length, (i) => ({
@@ -46,6 +46,7 @@ export const Carousel = ({ elements, title, wrapperType }) => {
                   cardType={CardType.FIRST}
                   cartItem={elements[index]}
                   isLastCard={index === elements.length - 1}
+                  dataArrayType={dataArrayType} // Передача dataArrayType в компонент Card
                 />
               )}
             </animated.div>

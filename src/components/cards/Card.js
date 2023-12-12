@@ -1,13 +1,10 @@
-import React, { memo, useCallback, useMemo, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import React, { memo, useCallback, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { DetailButton, DetailButtonSize } from '../detailButton/DetailButton';
 import { Button, ButtonType } from '../button/Button';
-import { ButtonOrder } from '../button/ButtonOrder';
-import { useHistory } from 'react-router-dom';
-
-
 import { cartActions } from '../../assets/store/slices/cartSlice';
+import { useNavigate } from 'react-router-dom'; // Импорт useNavigate
 
 import './Card.css';
 
@@ -18,15 +15,13 @@ export const CardType = {
 };
 
 export const Card = memo((props) => {
-
-  const { cartItem, cardType, isLastCard } = props;
-
+  const { cartItem, cardType, isLastCard, dataArrayType } = props;
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cartStore.cart);
+  const navigate = useNavigate(); // Использование useNavigate вместо useHistory
 
   const itemCount = useMemo(() => {
     const addedItems = cartItems?.filter((item) => item.id === cartItem.id) || [];
-
     return addedItems.length;
   }, [cartItem, cartItems]);
 
@@ -34,20 +29,32 @@ export const Card = memo((props) => {
     const { image, price, text, title, id } = cartItem;
 
     if (image && price && text && title) {
-      dispatch(cartActions.addToCart({ image, price, text, title, id, }))
+      dispatch(cartActions.addToCart({ image, price, text, title, id }));
     }
   }, [dispatch, cartItem]);
 
   const handleRemoveFromCart = useCallback(() => {
-    const { image, price, text, title, id } = cartItem;
-
-    if (price && text && title) {
-      dispatch(cartActions.removeFromCart(id))
-    }
+    const { id } = cartItem;
+    dispatch(cartActions.removeFromCart(id));
   }, [cartItem, dispatch]);
 
   const defaultCardType = CardType.FIRST;
 
+  const handleDetailButtonClick = () => {
+    switch (dataArrayType) {
+      case "authors":
+        navigate('/authorsBouquets');
+        break;
+      case "basket":
+        navigate('/basketBouquets');
+        break;
+      case "mono":
+        navigate('/monoBouquets');
+        break;
+      default:
+        break;
+    }
+  };
   return (
     <div>
       <div className={`card-${cardType || defaultCardType}`}>
@@ -60,11 +67,20 @@ export const Card = memo((props) => {
             <div className='card-first__button'>
               {isLastCard ? (
                 <div className='last-card__wrapper'>
-                    <DetailButton direction={'right'} size={DetailButtonSize.SMALL} />
-                    <span>Все товары</span>
+                  <DetailButton
+                    direction={'right'}
+                    size={DetailButtonSize.SMALL}
+                    handleSlide={handleDetailButtonClick}
+                  />
+                  <span>Все товары</span>
                 </div>
               ) : (
-                <Button type={ButtonType.PRIMARY} onAdd={handleAddToCart} onRemove={handleRemoveFromCart} value={itemCount} />
+                <Button
+                  type={ButtonType.PRIMARY}
+                  onAdd={handleAddToCart}
+                  onRemove={handleRemoveFromCart}
+                  value={itemCount}
+                />
               )}
             </div>
           </div>
@@ -77,7 +93,13 @@ export const Card = memo((props) => {
               <div className="card-text">{cartItem.text}</div>
               <span className='card-first__price'>{cartItem.price}</span>
             </div>
-            <Button type={ButtonType.SECONDARY} className='button-click__cart' onAdd={handleAddToCart} onRemove={handleRemoveFromCart} value={itemCount} />
+            <Button
+              type={ButtonType.SECONDARY}
+              className='button-click__cart'
+              onAdd={handleAddToCart}
+              onRemove={handleRemoveFromCart}
+              value={itemCount}
+            />
           </div>
         )}
       </div>
@@ -87,10 +109,7 @@ export const Card = memo((props) => {
 
 Card.propTypes = {
   cartItem: PropTypes.object.isRequired,
-  // id: PropTypes.number.isRequired,
   cardType: PropTypes.oneOf(Object.values(CardType)),
-  // title: PropTypes.string,
-  // text: PropTypes.string,
-  // component: PropTypes.node,
-  onClick: PropTypes.func,
+  dataArrayType: PropTypes.string.isRequired,
+  isLastCard: PropTypes.bool,
 };

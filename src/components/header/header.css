@@ -7,14 +7,26 @@
     left: 0;
     background-color: white;
     display: flex;
-    align-items: end;
-    justify-content: center;
-    z-index: 1;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
     border-radius: 0px 0px 15px 15px;
     box-shadow: 2px 2px 5px #ccc;
+    font-size: 16px;
     z-index: 102;
+    color:black;
+}
+
+.header__text {
+    z-index: 103;
 }
 
 h5 {
     margin-left: 16px;
+}
+
+.header__back__icon {
+    position: absolute;
+    left: 16px;
+    bottom: 36px;
 }

@@ -2,30 +2,25 @@ import { Card, CardType } from '../../../../components/cards/Card';
 import { CardWrapper, CardWrapperType } from '../../../../components/cards/CardWrapper';
 import { authorsElements } from '../../../../assets/data';
 import Header from '../../../../components/header/Header';
+import { Link } from 'react-router-dom';
+import Icon1 from '../../../../assets/icons/arrow-left.svg'
 
 export const AuthorsBouquetsPage = ( ) => {
 
     return (
         <div className='authorpage__wrapper'>
-            <Header>
-                Авторские букеты
-            </Header>
-            <CardWrapper type={CardWrapperType.THIRD}>
-                {authorsElements
-                .map((authorsElements, index) => (
-                    <div key={index}>
-                    <Card
-                        cardType={CardType.FIRST}
-                        image={authorsElements.image}
-                        price={authorsElements.price}
-                        title={authorsElements.title}
-                        text={authorsElements.text}
-                        component={authorsElements.component}
-                    />
-                    </div>
-                ))}
+        <Header>
+            <Link to="/" className="header__back-button">
+                <img className='header__back__icon' src={Icon1}/>
+            </Link>
+            <h5 className='header__text'>Авторские букеты</h5>
+        </Header>
+        <CardWrapper type={CardWrapperType.THIRD}>
+            {authorsElements.slice(0, -1).map((item) => (
+                <Card key={item.id} cartItem={item} cardType={CardType.FIRST} />
+            ))}
         </CardWrapper>
-        </div>
+    </div>
     );
 };
 
