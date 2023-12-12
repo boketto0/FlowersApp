@@ -36,6 +36,7 @@ export const Carousel = ({ elements, title, wrapperType, dataArrayType }) => {
     <div {...handlers}>
       <div className='product-page__text__wrapper'>
         <h2>{title}</h2>
+        <DetailButton size={DetailButtonSize.MEDIUM}/>
       </div>
       <div>
         <CardWrapper type={wrapperType}>

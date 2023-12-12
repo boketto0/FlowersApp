@@ -7,18 +7,16 @@
     gap: 32px;
     margin-bottom: 128px;
 }
-
-.home-visible {
-    visibility: visible;
-    display: contents;
-  }
-  
-  .home-visible.hidden {
-    visibility: hidden;
-    display: none;
-  }
   
 .no-results-message {
   margin-top: 120px;
   color: #a5a5a5;
+  visibility: hidden;
+}
+
+.no-results-message.visible {
+  margin-top: 120px;
+  opacity: 1; 
+  pointer-events: auto;
+  transform: translateY(0);
 }

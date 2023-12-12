@@ -11,23 +11,31 @@ import { CardWrapper, CardWrapperType } from '../../components/cards/CardWrapper
 
 const Home = () => {
   const [searchResults, setSearchResults] = useState([]);
+  const [searchPerformed, setSearchPerformed] = useState(false);
   const cartItems = useSelector((state) => state.cartStore.cart);
+
+  const handleSearchResultsChange = (results) => {
+    setSearchResults(results);
+    setSearchPerformed(true);
+  };
 
   return (
     <div className='home'>
       <Header>
-        <SearchBox onSearchResultsChange={setSearchResults} />
+        <SearchBox onSearchResultsChange={handleSearchResultsChange} />
       </Header>
 
-      {searchResults.length > 0 ? (
-        <CardWrapper type={CardWrapperType.THIRD}>
-          {searchResults.map((item) => (
-            <Card key={item.id} cartItem={item} cardType={CardType.FIRST} />
-          ))}
-        </CardWrapper>
-      ) : (
-        <h2 className="no-results-message">Увы, ничего не найдено</h2>
-      )}
+      {searchPerformed && searchResults.length === 0 ? (
+  <h2 className={`no-results-message visible ${searchPerformed ? 'visible' : ''}`}>
+    Увы, ничего не найдено
+  </h2>
+) : (
+  <CardWrapper type={CardWrapperType.THIRD}>
+    {searchResults.map((item) => (
+      <Card key={item.id} cartItem={item} cardType={CardType.FIRST} />
+    ))}
+  </CardWrapper>
+)}
 
       <ExampleBlock />
       <ProductPage />
