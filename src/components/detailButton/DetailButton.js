@@ -8,15 +8,18 @@ export const DetailButtonSize = {
 };
 
 export const DetailButton = (props) => {
-    const { handleSlide, size, direction } = props;
+    const { handleSlide, size, direction, text } = props;
 
     const detailButtonClass = `detail-button detail-button-${size} ${direction}`;
 
     const icon = direction === 'right' ? <img src={Icon1}/> : '<';
 
     return (
-        <div className={detailButtonClass}>
-            <span className='detail-button__icon' onClick={handleSlide}>{icon}</span>
+        <div>
+            <div className={detailButtonClass}>
+                <h5 className='detail-button__text'>{text}</h5>
+                <span className='detail-button__icon' onClick={handleSlide}>{icon}</span>
+            </div>
         </div>
     );
 };

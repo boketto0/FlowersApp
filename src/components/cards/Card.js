@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { DetailButton, DetailButtonSize } from '../detailButton/DetailButton';
 import { Button, ButtonType } from '../button/Button';
 import { cartActions } from '../../assets/store/slices/cartSlice';
-import { useNavigate } from 'react-router-dom'; // Импорт useNavigate
+import { useNavigate } from 'react-router-dom';
 
 import './Card.css';
 
@@ -18,7 +18,7 @@ export const Card = memo((props) => {
   const { cartItem, cardType, isLastCard, dataArrayType } = props;
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cartStore.cart);
-  const navigate = useNavigate(); // Использование useNavigate вместо useHistory
+  const navigate = useNavigate();
 
   const itemCount = useMemo(() => {
     const addedItems = cartItems?.filter((item) => item.id === cartItem.id) || [];
@@ -59,12 +59,12 @@ export const Card = memo((props) => {
     <div>
       <div className={`card-${cardType || defaultCardType}`}>
         {cardType === CardType.FIRST && (
-          <div>
+          <div className='card-first__content'>
             <div className='card-first__img'>{cartItem.image}</div>
             <span className='card-first__price'>{cartItem.price}</span>
             <div className="card-title">{cartItem.title}</div>
             <div className="card-text">{cartItem.text}</div>
-            <div className='card-first__button'>
+            <div>
               {isLastCard ? (
                 <div className='last-card__wrapper'>
                   <DetailButton
@@ -75,12 +75,14 @@ export const Card = memo((props) => {
                   <span>Все товары</span>
                 </div>
               ) : (
-                <Button
-                  type={ButtonType.PRIMARY}
-                  onAdd={handleAddToCart}
-                  onRemove={handleRemoveFromCart}
-                  value={itemCount}
-                />
+                <div className='card-first__button'>
+                  <Button
+                    type={ButtonType.PRIMARY}
+                    onAdd={handleAddToCart}
+                    onRemove={handleRemoveFromCart}
+                    value={itemCount}
+                  />
+                </div>
               )}
             </div>
           </div>

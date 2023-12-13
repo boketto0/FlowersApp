@@ -2,8 +2,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* position: absolute;
-    z-index: 100; */
 }
 
 .detail-button.left {
@@ -21,6 +19,7 @@
 .detail-button__icon {
     cursor: pointer;
     margin-top: 10%;
+    margin-right: 8px;
 }
 
 .detail-button-small {
@@ -33,24 +32,20 @@
 }
 
 .detail-button-medium {
-    width: 16vw;
-    height: 10vw;
-    font-size: 4vw;
+    width: 64px;
+    height: 32px;
+    font-size: 16px;
     border-radius: 15px;
     background-color: #dbdbdb;
+    margin-right: 90%;
 }
 
-@media screen and (min-width: 1200px) {
-    .detail-button-medium {
-        width: 8vh;
-        height: 8vh;
-        font-size: 2vh;
-    }
+.detail-button-medium:hover {
+    cursor: pointer;
+    background-color: #bebebe;
+    transition: all 0.3s ease;
 }
-@media screen and (max-width: 1200px) {
-    .detail-button-medium {
-        width: 6vh;
-        height: 4vh;
-        font-size: 2.5vh;
-    }
+
+.detail-button__text {
+    margin-right: 8px;
 }

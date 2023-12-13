@@ -4,6 +4,8 @@ import { useSwipeable } from 'react-swipeable';
 import { Card, CardType } from '../cards/Card';
 import { CardWrapper } from '../cards/CardWrapper';
 import { DetailButton, DetailButtonSize } from '../detailButton/DetailButton';
+import '../../containers/pages/productPage/productPage.css'
+import { useNavigate } from 'react-router-dom';
 
 const cardWidth = 10;
 const gap = 2;
@@ -32,11 +34,29 @@ export const Carousel = ({ elements, title, wrapperType, dataArrayType }) => {
     }
   };
 
+  const navigate = useNavigate();
+
+  const handleDetailButtonClick = () => {
+    switch (dataArrayType) {
+      case "authors":
+        navigate('/authorsBouquets');
+        break;
+      case "basket":
+        navigate('/basketBouquets');
+        break;
+      case "mono":
+        navigate('/monoBouquets');
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <div {...handlers}>
       <div className='product-page__text__wrapper'>
-        <h2>{title}</h2>
-        <DetailButton size={DetailButtonSize.MEDIUM}/>
+        <h3>{title}</h3>
+        <DetailButton text={"Все"} direction={"right"} size={DetailButtonSize.MEDIUM} handleSlide={handleDetailButtonClick}/>
       </div>
       <div>
         <CardWrapper type={wrapperType}>
@@ -47,7 +67,7 @@ export const Carousel = ({ elements, title, wrapperType, dataArrayType }) => {
                   cardType={CardType.FIRST}
                   cartItem={elements[index]}
                   isLastCard={index === elements.length - 1}
-                  dataArrayType={dataArrayType} // Передача dataArrayType в компонент Card
+                  dataArrayType={dataArrayType}
                 />
               )}
             </animated.div>
