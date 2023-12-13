@@ -18,8 +18,19 @@
 
 .detail-button__icon {
     cursor: pointer;
+    align-self: center;
+}
+
+.detail-button__icon-small {
+    cursor: pointer;
     margin-top: 10%;
-    margin-right: 8px;
+    margin-right: 20px;
+    align-self: center;
+}
+
+.detail-button__icon-medium {
+    cursor: pointer;
+    margin-right: 10%;
 }
 
 .detail-button-small {
@@ -28,7 +39,9 @@
     border-radius: 50%;
     background-color: #ffffff;
     box-shadow: 2px 2px 5px #ccc;
-    margin-top: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .detail-button-medium {

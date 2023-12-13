@@ -67,12 +67,12 @@ export const Card = memo((props) => {
             <div>
               {isLastCard ? (
                 <div className='last-card__wrapper'>
+                  <h5>Все товары</h5>
                   <DetailButton
                     direction={'right'}
                     size={DetailButtonSize.SMALL}
                     handleSlide={handleDetailButtonClick}
                   />
-                  <span>Все товары</span>
                 </div>
               ) : (
                 <div className='card-first__button'>

@@ -23,11 +23,11 @@
 .cardwrapper-third {
     display: flex;
     flex-direction: row;
-    gap: 2vw;
+    gap: 8px;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    width: 100%;
+    width: auto;
     margin-top: 120px;
 }
 

@@ -22,14 +22,14 @@ export const monoElements = [
         text: "Красивые",
         component:<Button/>
     },
-    {
-        id: 2,
-        image: <img className='card-first__img' src={Icon9}/>,
-        price: "5500р",
-        title: "Хризантемы",
-        text: "Красивые",
-        component:<Button/>
-    },
+    // {
+    //     id: 2,
+    //     image: <img className='card-first__img' src={Icon9}/>,
+    //     price: "5500р",
+    //     title: "Хризантемы букет",
+    //     text: "Красивые",
+    //     component:<Button/>
+    // },
     {
         id: 3,
         image: <img className='card-first__img' src={Icon9}/>,

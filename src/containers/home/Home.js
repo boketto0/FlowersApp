@@ -21,9 +21,8 @@ const Home = () => {
 
   return (
     <div className='home'>
-      <Header>
+      {/* <Header></Header> */}
         <SearchBox onSearchResultsChange={handleSearchResultsChange} />
-      </Header>
 
       {searchPerformed && searchResults.length === 0 ? (
   <h2 className={`no-results-message visible ${searchPerformed ? 'visible' : ''}`}>

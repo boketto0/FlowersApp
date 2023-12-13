@@ -31,20 +31,22 @@ export const SearchBox = ({ onSearchResultsChange }) => {
   }, [searchResults, onSearchResultsChange]);
 
   return (
-    <div>
-      <div>
-        <div className="search-box">
-          <span className="search-icon">
-            <img src={Icon1}/>
-          </span>
-          <input
-            type="text"
-            placeholder="Быстрый поиск"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
+      <div className='search-box__wrapper'>
+        <div className='search-header__block'>
+        </div>
+        <div className='search-box__border'>
+          <div className="search-box">
+            <span className="search-icon">
+              <img src={Icon1}/>
+            </span>
+            <input
+              type="text"
+              placeholder="Быстрый поиск"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
         </div>
       </div>
-    </div>
   );
 };

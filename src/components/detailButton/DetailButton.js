@@ -12,13 +12,15 @@ export const DetailButton = (props) => {
 
     const detailButtonClass = `detail-button detail-button-${size} ${direction}`;
 
+  const detailButtonIconClass = `detail-button__icon detail-button__icon-${size}`;
+
     const icon = direction === 'right' ? <img src={Icon1}/> : '<';
 
     return (
         <div>
             <div className={detailButtonClass}>
                 <h5 className='detail-button__text'>{text}</h5>
-                <span className='detail-button__icon' onClick={handleSlide}>{icon}</span>
+                <span className={detailButtonIconClass} onClick={handleSlide}>{icon}</span>
             </div>
         </div>
     );
