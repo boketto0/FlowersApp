@@ -35,7 +35,7 @@ export const ExampleBlock = ({ isVisible }) => {
       </div>
       <div className='example-cards__wrapper'>
         <img onClick={handlePageBasketClick} src={Icon3}></img>
-        <span className='example-cards__text'>Букеты в <br />                       корзинках</span>
+        <span className='example-cards__text'>Букеты в <br />корзинках</span>
       </div>
     </div>
   );
