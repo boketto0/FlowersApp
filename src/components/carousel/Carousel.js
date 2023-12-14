@@ -58,7 +58,7 @@ export const Carousel = ({ elements, title, wrapperType, dataArrayType }) => {
         <h3>{title}</h3>
         <DetailButton text={"Все"} direction={"right"} size={DetailButtonSize.MEDIUM} handleSlide={handleDetailButtonClick}/>
       </div>
-      <div>
+      <div class="carousel-style">
         <CardWrapper type={wrapperType}>
           {props.map(({ x }, index) => (
             <animated.div key={index} style={{  }}>

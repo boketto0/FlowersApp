@@ -4,10 +4,10 @@
   flex-direction: column;
   align-items: center;
   background-color: #f0f0f0;
-  border-radius: 15px;
-  width: 20vw;
-  height: 45vw;
-  padding: 10px;
+  border-radius: 20px;
+  width: 22vw;
+  height: 50vw;
+  padding: 8px;
   /* margin-top: 0px; */
 }
 
@@ -26,7 +26,7 @@
   width: 100%;
   height: auto;
   border-radius: 15px;
-  margin-bottom: 4px;
+  margin-bottom: -4px;
 }
 
 .card-third__img {
@@ -38,7 +38,8 @@
 
 .card-first__price {
   font-weight: bold;
-  font-size: 2.5vw;
+  font-size: 16px;
+  line-height: 16px;
 }
 
 .card-text {
@@ -53,6 +54,10 @@
   align-self: baseline;
   font-size: 14px;
   line-height: 14px;
+}
+
+.carousel-style {
+  margin-left: 8px;
 }
 
 /* @media (min-width: 600px) {

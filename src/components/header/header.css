@@ -15,6 +15,7 @@
     font-size: 16px;
     z-index: 102;
     color:black;
+    border-radius: 25px;
 }
 
 .header__text {

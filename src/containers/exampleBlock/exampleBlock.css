@@ -1,19 +1,13 @@
 .example-block__wrapper {
     display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    max-width: 90%;
+    flex-wrap: wrap;
+    max-width: 100%;
     margin-bottom: -48px;
-    margin-top: 72px;
+    margin-top: 48px;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
 }
-
-.example-block__wrapper .visible {
-    display: block;
-  }
-  
-  .example-block__wrapper .hidden {
-    display: none;
-  }
   
 
 .example-cards__wrapper {
@@ -22,6 +16,7 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 24px;
+    text-align: center;
 }
 
 .example-cards__wrapper img {
@@ -34,7 +29,11 @@
     }
 }
 
-.example-cards__wrapper span {
-    font-size: 3vw;
-    margin-right: 16px;
+.example-cards__text {
+  font-size: 12px;
+  line-height: 12px;
+  white-space: pre-wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

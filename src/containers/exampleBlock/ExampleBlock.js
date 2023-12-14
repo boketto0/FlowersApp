@@ -22,18 +22,20 @@ export const ExampleBlock = ({ isVisible }) => {
   };
 
   return (
-    <div className={`example-block__wrapper ${isVisible ? 'visible' : 'hidden'}`}>
+    <div className="example-block__wrapper">
       <div className='example-cards__wrapper'>
         <img onClick={handlePageAuthorsClick} src={Icon1}></img>
-        <span>Авторские букеты</span>
+        <span className='example-cards__text'>
+          Авторские <br />
+          букеты</span>
       </div>
       <div className='example-cards__wrapper'>
         <img onClick={handlePageMonoClick} src={Icon2}></img>
-        <span>Моно букеты</span>
+        <span className='example-cards__text'>Моно <br />букеты</span>
       </div>
       <div className='example-cards__wrapper'>
         <img onClick={handlePageBasketClick} src={Icon3}></img>
-        <span>Букеты в корзинках</span>
+        <span className='example-cards__text'>Букеты в <br />                       корзинках</span>
       </div>
     </div>
   );
