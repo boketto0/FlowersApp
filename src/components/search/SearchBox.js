@@ -45,11 +45,11 @@ export const SearchBox = ({ onSearchResultsChange }) => {
     };
   }, []);
 
-  return (
+return (
     <div className={`search-box__wrapper ${isScrolled ? 'scrolled' : ''}`}>
       <div className='search-header__block'>
         <div className="search-wrapper__text">
-          <img src={Icon2}/>
+          <img src={Icon2} alt="Bloombox Icon"/>
           <h5>Bloombox</h5>
         </div>
       </div>
