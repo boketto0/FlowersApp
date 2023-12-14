@@ -8,6 +8,7 @@ import './home.css';
 import { SearchBox } from '../../components/search/SearchBox';
 import { Card, CardType } from '../../components/cards/Card';
 import { CardWrapper, CardWrapperType } from '../../components/cards/CardWrapper';
+import { Footer } from '../../components/footer/Footer';
 
 const Home = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -39,6 +40,7 @@ const Home = () => {
       <ExampleBlock />
       <ProductPage />
       {cartItems?.length > 0 && <ButtonOrderCart />}
+      <Footer/>
     </div>
   );
 };
