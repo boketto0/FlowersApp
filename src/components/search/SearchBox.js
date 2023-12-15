@@ -54,7 +54,7 @@ return (
         </div>
       </div>
       <div className='search-box__border'>
-        <div className="search-box">
+      <div className="search-box">
           <span className="search-icon">
             <img src={Icon1} alt="Search Icon" />
           </span>

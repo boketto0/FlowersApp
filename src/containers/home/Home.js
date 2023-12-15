@@ -30,9 +30,9 @@ const Home = () => {
     Увы, ничего не найдено
   </h2>
 ) : (
-  <CardWrapper type={CardWrapperType.THIRD}>
+  <CardWrapper className="cardwrapper-third__style" type={CardWrapperType.THIRD}>
     {searchResults.map((item) => (
-      <Card key={item.id} cartItem={item} cardType={CardType.FIRST} />
+      <Card key={item.id} cartItem={item} cardType={CardType.THIRD} />
     ))}
   </CardWrapper>
 )}

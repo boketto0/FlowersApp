@@ -4,4 +4,9 @@
     align-items: center;
     justify-content: center;
     flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+h4 {
+    margin-top: 120px;
 }

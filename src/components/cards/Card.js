@@ -104,6 +104,37 @@ export const Card = memo((props) => {
             />
           </div>
         )}
+
+          {cardType === CardType.THIRD && (
+          <div className='card-first__content'>
+            <div className='card-first__img'>{cartItem.image}</div>
+            <span className='card-first__price'>{cartItem.price}</span>
+            <div className="card-title">{cartItem.title}</div>
+            <div className="card-text">{cartItem.text}</div>
+            <div>
+              {isLastCard ? (
+                <div className='last-card__wrapper'>
+                  <h5>Все товары</h5>
+                  <DetailButton
+                    direction={'right'}
+                    size={DetailButtonSize.SMALL}
+                    handleSlide={handleDetailButtonClick}
+                  />
+                </div>
+              ) : (
+                <div className='card-first__button'>
+                  <Button
+                    type={ButtonType.PRIMARY}
+                    onAdd={handleAddToCart}
+                    onRemove={handleRemoveFromCart}
+                    value={itemCount}
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
       </div>
     </div>
   );
