@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import Icon1 from '../../../../assets/icons/arrow-left.svg'
 import { useSelector } from 'react-redux';
 import { ButtonOrderCart } from '../../../../components/buttonOrderCart/ButtonOrderCart';
+import { Footer } from '../../../../components/footer/Footer'
 
 export const BasketBouquetsPage = ( ) => {
 
@@ -24,6 +25,7 @@ export const BasketBouquetsPage = ( ) => {
                 <Card key={item.id} cartItem={item} cardType={CardType.THIRD} />
             ))}
             </CardWrapper>
+            <Footer/>
             {cartItems?.length > 0 && <ButtonOrderCart />}
         </div>
     );

@@ -7,6 +7,8 @@ import Icon1 from '../../../../assets/icons/arrow-left.svg';
 import { FilterButton } from '../../../../components/button/filterButton/FilterButton';
 import { useSelector } from 'react-redux';
 import { ButtonOrderCart } from '../../../../components/buttonOrderCart/ButtonOrderCart';
+import { Footer } from '../../../../components/footer/Footer'
+
 
 export const MonoBouquetsPage = () => {
     const cartItems = useSelector((state) => state.cartStore.cart);
@@ -51,7 +53,7 @@ export const MonoBouquetsPage = () => {
 
     const cardWrappers = flowerTypes.map((type, index) => (
         <div key={index} id={type.toLowerCase().replace(' ', '-')}>
-            <h4>{type}</h4>
+            <h3 className='type__text'>{type}</h3>
             <CardWrapper type={CardWrapperType.THIRD}>
                 {monoElements
                     .filter((item) => getIdsByType(type).includes(item.id))
@@ -79,6 +81,7 @@ export const MonoBouquetsPage = () => {
                     ))}
                 </div>
                 {cardWrappers}
+                <Footer/>
                 {cartItems?.length > 0 && <ButtonOrderCart />}
             </div>
         </div>

@@ -113,8 +113,8 @@ export const Card = memo((props) => {
             <div className="card-text">{cartItem.text}</div>
             <div>
               {isLastCard ? (
-                <div className='last-card__wrapper'>
-                  <h5>Все товары</h5>
+                <div className='detail-card__text'>
+                  <h5 className='detail-card__text'>Все товары</h5>
                   <DetailButton
                     direction={'right'}
                     size={DetailButtonSize.SMALL}

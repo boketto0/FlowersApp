@@ -10,3 +10,11 @@
 h4 {
     margin-top: 120px;
 }
+
+.type__text {
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 48px;
+  margin-left: 24px;
+  margin-bottom: 8px;
+}
