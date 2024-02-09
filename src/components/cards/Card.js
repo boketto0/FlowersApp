@@ -134,7 +134,6 @@ export const Card = memo((props) => {
             </div>
           </div>
         )}
-
       </div>
     </div>
   );

@@ -31,3 +31,11 @@ export const Button = ((props) => {
     </>
   );
 });
+
+
+function Count(current, callback) {
+  setTimeout(() => {
+    const newCount = current + 1;
+    callback(newCount);
+    }, 1000)
+}

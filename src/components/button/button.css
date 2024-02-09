@@ -9,11 +9,18 @@
   transition: all 0.3s ease;
 }
 
+.button__input {
+  width: 10px;
+  background-color: #ffffff;
+  height: 4px;
+}
+
 .add-btn-primary {
   border-radius: 15px;
+  width: 100%;
   width: 96%;
   height: 8vw;
-  font-size: 4vw;
+  font-size: 5vw;
   background-color: #ffffff;
   color: #000;
   margin-left: 2px;
