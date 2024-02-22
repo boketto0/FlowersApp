@@ -1,0 +1,27 @@
+.product-page__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 72px;
+  flex-direction: column;
+  position: relative;
+  width: 98%;
+}
+
+
+.product-page__text__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 95%;
+  margin-left: 8px;
+}
+
+.product-page__carousel__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: row;
+  width: 98%;
+}

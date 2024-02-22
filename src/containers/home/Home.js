@@ -1,28 +1,46 @@
-import { useState } from 'react';
-import CartPage from '../../user/cartPage/CartPage';
-import SearchBox from '../../components/search/SearchBox';
-import { ExampleBlock } from '../exampleBlock/ExampleBlock';
-import ProductPage from '../productPage/ProductPage';
-import Header from '../../components/header/Header';
-import './home.css';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { ButtonOrderCart } from '../../components/buttonOrderCart/ButtonOrderCart';
+import Header from '../../components/header/Header';
+import { ExampleBlock } from '../exampleBlock/ExampleBlock';
+import ProductPage from '../pages/productPage/ProductPage';
 import './home.css';
+import { SearchBox } from '../../components/search/SearchBox';
+import { Card, CardType } from '../../components/cards/Card';
+import { CardWrapper, CardWrapperType } from '../../components/cards/CardWrapper';
+import { Footer } from '../../components/footer/Footer';
 
 const Home = () => {
-  const [cartItems, setCartItems] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [searchPerformed, setSearchPerformed] = useState(false);
+  const cartItems = useSelector((state) => state.cartStore.cart);
 
-  const addToCart = (product) => {
-    setCartItems([...cartItems, product]);
+  const handleSearchResultsChange = (results) => {
+    setSearchResults(results);
+    setSearchPerformed(true);
   };
 
   return (
     <div className='home'>
-        <Header/>
-        <SearchBox/>
-        <ExampleBlock/>
-        <ProductPage addToCart={addToCart} />
-        <ButtonOrderCart/>
-        {/* <CartPage/> */}
+      {/* <Header></Header> */}
+        <SearchBox onSearchResultsChange={handleSearchResultsChange} />
+
+      {searchPerformed && searchResults.length === 0 ? (
+  <h2 className={`no-results-message visible ${searchPerformed ? 'visible' : ''}`}>
+    Увы, ничего не найдено
+  </h2>
+) : (
+  <CardWrapper className="cardwrapper-third__style" type={CardWrapperType.THIRD}>
+    {searchResults.map((item) => (
+      <Card key={item.id} cartItem={item} cardType={CardType.THIRD} />
+    ))}
+  </CardWrapper>
+)}
+
+      <ExampleBlock />
+      <ProductPage />
+      {cartItems?.length > 0 && <ButtonOrderCart />}
+      <Footer/>
     </div>
   );
 };

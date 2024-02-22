@@ -4,13 +4,32 @@
   flex-direction: column;
   align-items: center;
   background-color: #f0f0f0;
-  border-radius: 15px;
-  width: 20vw;
-  height: 30vh;
-  padding: 10px;
+  border-radius: 20px;
+  width: 22vw;
+  height: 50vw;
+  padding: 8px;
+  /* margin-top: 0px; */
+}
+
+.card-first__content {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-first__button {
+  align-self: flex-end;
 }
 
 .card-first__img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  margin-bottom: -2px;
+}
+
+.card-third__img {
   width: 100%;
   height: auto;
   border-radius: 15px;
@@ -19,29 +38,32 @@
 
 .card-first__price {
   font-weight: bold;
-  font-size: 3vw;
+  font-size: 16px;
+  line-height: 16px;
 }
 
 .card-text {
   font-weight: normal;
-  font-size: 16px;
-  line-height: 18px;
-  margin-top: 8px;
+  font-size: 12px;
+  line-height: 12px;
   color: black;
 }
 
 .card-title {
   color: #101828;
   align-self: baseline;
-  font-size: 18px;
-  line-height: 18px;
-  margin-top: 4px;
+  font-size: 14px;
+  line-height: 14px;
 }
 
-@media (min-width: 600px) {
+.carousel-style {
+  margin-left: 8px;
+}
+
+/* @media (min-width: 600px) {
   .card-first {
       width: 15vw;
-      height: 45vh;
+      height: 40vw;
   }
 
   .card-first__img {
@@ -54,10 +76,10 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (max-width: 767px) {
   .card-first {
-      width: 15vw;
-      height: 60vh;
+    width: 20vw;
+    height: 50vw;
   }
 
   .card-first__img {
@@ -68,7 +90,23 @@
   .card-first__price {
       font-size: 3vw;
   }
-}
+  }
+
+@media (min-width: 1200px) {
+  .card-first {
+      width: 15vw;
+      height: 55vw;
+  }
+
+  .card-first__img {
+      width: 100%;
+      height: auto;
+  }
+
+  .card-first__price {
+      font-size: 3vw;
+  }
+} */
 
 .card-second {
   display: flex;
@@ -81,10 +119,17 @@
   padding: 24px
 }
 
+.last-card__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-self: flex-start
+}
 
 .card-second__img {
-  width: 120px;
-  height: 120px;
+  width: 30%;
+  height: auto;
   border-radius: 15px;
 }
 
@@ -100,4 +145,23 @@
 .card-second__divider {
   height: 2px;
   color: #101828;
+}
+
+.card-third {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  width: 25vw;
+  height: 50vw;
+  padding: 10px;
+}
+
+.detail-card__text {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
